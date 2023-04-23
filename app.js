@@ -10,3 +10,13 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
+function feedback(){
+    const name = document.querySelector("#fname");
+    const email = document.querySelector("#femail");
+    if(name.value != "" && email.value != ""){
+        alert("Feedback Successfuly Sent!");
+    } else {
+        alert("Some fields are missing");
+    }
+}
+
