@@ -75,13 +75,13 @@
         <button class="hidden">Learn More</button>
     </div>
     <div class="home4">
-        <p style="color: #fff;">Tried our services before?</p>
-        <h3 style="color: #d7263d;"> <b>Give us a feedback!</b> </h3>
-        <form action="">
+        <p style="color: #fff;" class="hidden">Tried our services before?</p>
+        <h3 style="color: #d7263d;" class="hidden"> <b>Give us a feedback!</b> </h3>
+        <form action="sendmail.php" method="POST" class="hidden">
             <input type="text" name="fname" id="fname" placeholder="Your Name" required>
             <input type="email" name="femail" id="femail" placeholder="Your Email" required>
             <textarea name="fmessage" id="" cols="30" rows="5" placeholder="Your Feedback"></textarea required>
-            <input type="submit" value="Send" onclick="feedback();">
+            <input type="submit" value="Send" onclick="feedback();" name="submit">
         </form>
         
     </div>
