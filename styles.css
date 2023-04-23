@@ -223,6 +223,56 @@ button:hover{
     border-radius: 20px;
     color: white;
 }
+.home6{
+    height: 100vh;
+    background-image: url("./img/tokyo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 100px;
+}
+.home6 span{
+    font-size: 42px;
+    font-weight: 600;
+    color: #d7263d;
+}
+.home6 p, .home6 label{
+    color: #fff;
+    font-size: 16px;
+}
+.form, .contact{
+    text-align: start;
+}
+input, textarea{
+    box-sizing:border-box;
+    width: 100%;
+    padding: 0.6em 0.3em;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 0.3em;
+    color: #ffffff;
+    outline: none;
+    font-weight: 400;
+    margin-bottom: 0.6em;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+input[type='submit']{
+    background-color: #d7263d;
+    color: white;
+    border: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+input[type='submit']:hover{
+    background-color: #d36473;
+}
 .background-tint {
     background-color: rgba(32, 32, 32, 0.5);
     background-blend-mode: multiply;
