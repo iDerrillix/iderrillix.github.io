@@ -45,6 +45,7 @@ header{
     margin: 0;
     border-radius: 0;
     width: 100%;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
 }
 header img{
     width: 60px;
@@ -169,7 +170,6 @@ button:hover{
 }
 .home3 p{
     font-size: 16px;
-    letter-spacing: 0.3rem;
     color: #000000;
     
 }
@@ -198,8 +198,14 @@ button:hover{
     object-fit: cover;
 }
 .description{
-    height: 150px;
+    min-height: fit-content;
     border-left: 3px solid red;
+}
+.feedback-container:nth-child(2){
+    transition-delay: 200ms;
+}
+.feedback-container:nth-child(3){
+    transition-delay: 400ms;
 }
 .home4{
     background-image: url(./img/home1.jpg);
@@ -249,7 +255,7 @@ button:hover{
 .form, .contact{
     text-align: start;
 }
-input, textarea{
+input, textarea, select{
     box-sizing:border-box;
     width: 100%;
     padding: 0.6em 0.3em;
@@ -262,6 +268,7 @@ input, textarea{
     margin-bottom: 0.6em;
     resize: none;
     background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid transparent;
 }
 input[type='submit']{
     background-color: #d7263d;
@@ -272,6 +279,12 @@ input[type='submit']{
 }
 input[type='submit']:hover{
     background-color: #d36473;
+}
+input:focus, textarea:focus{
+    border: 1px solid #d0d0d0;
+}
+select{
+    color: #d0d0d0;
 }
 .background-tint {
     background-color: rgba(32, 32, 32, 0.5);
