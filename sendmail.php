@@ -16,10 +16,10 @@
         $mail->Password = 'ltpmkxujuugyhmkc';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->setFrom('jjfoodtrays@gmail.com');
-        $mail->addAddress($_POST['femail']);
+        $mail->setFrom('jjfoodtrays@gmail.com',  "One Travel and Tours");
+        $mail->addAddress($_POST['femail'], $_POST['fname']);
         $mail->isHTML(true);
-        $mail->Subject = $_POST['fname'];
+        $mail->Subject = "Feedback";
         $mail->Body = $_POST['fname'].',  We have received your concern.';
         $mail->send();
 
