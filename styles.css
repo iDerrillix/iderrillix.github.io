@@ -41,11 +41,15 @@ header{
 }
 .scrolled{
     background-color: white;
+    color: black;
     top: 0;
     margin: 0;
     border-radius: 0;
     width: 100%;
     box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+}
+.nav-item-scrolled{
+    color: black;
 }
 header img{
     width: 60px;
@@ -55,7 +59,7 @@ header ul li{
     list-style: none;
 }
 header ul li a{
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     margin: 0px 20px;
     text-decoration: none;
@@ -78,17 +82,40 @@ header ul li a:hover{
     background-size:cover;
     text-align: center;
     vertical-align: middle;
-    font-size: 20px;
 }
+#button{
+    margin-top: 15px;
+    border-radius: 30px;
+    padding: 10px 35px;
+    border: none;
+    color: white;
+    background-color: #d7263d;
+    cursor: pointer;
+    transition: all 0.5s;
+    font-size: 18px;
+}
+#button:hover{
+    background-color: #ffffff;
+    color: black;
+    transform: translateY(-5%);
+
+}
+
 .home h1{
-    font-size: 42px;
+    font-size: 62px;
     font-weight: 500;
     color: #fff;
     margin: 0;
     position: relative;
     top: 40%;
-    left: 50%;
-    transform: translateX(-50%);
+}
+.home h2{
+    color: #fff;
+    margin: 0;
+    
+    letter-spacing: 0.2rem;
+    position: relative;
+    top: 40%;
 }
 .home p{
     color: #fff;
@@ -96,14 +123,43 @@ header ul li a:hover{
     position: relative;
     letter-spacing: 0.2rem;
     top: 40%;
-    transform: translateY(-50%);
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 26px;
+}
+.home button{
+    position: relative;
+    top: 40%;
     font-size: 20px;
+    margin-top: 15px;
+    border-radius: 30px;
+    padding: 15px 50px;
+    border: none;
+    color: white;
+    background-color: #d7263d;
+    cursor: pointer;
+    transition: all 0.5s;
 }
-.home:nth-child(2){
-    transition-delay: 600ms;
+.home button:hover{
+    background-color: #ffffff;
+    color: black;
+    transform: translateY(-5%);
 }
+.home-content:nth-child(1){
+    transition-delay: 1ms;
+    transition-property: opacity;
+}
+.home-content:nth-child(2){
+    transition-delay: 200ms;
+    transition-property: opacity;
+}
+.home-content:nth-child(3){
+    transition-delay: 400ms;
+    transition-property: opacity;
+}
+.home-content:nth-child(4){
+    transition-delay: 800ms;
+    transition-property: opacity;
+}
+
 .home2{
     height: 100vh;
     background-image: url("./img/japanese.jpg");
@@ -121,34 +177,21 @@ header ul li a:hover{
 span{
     display: inline;
 }
-.home2 h1, span{
-    font-size: 42px;
+.home2 h1, .home2 span{
+    font-size: 52px;
     color: #fff;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1rem;
     
 }
 .home2 p{
     margin-top: 20px;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 0rem;
     
 }
-button{
-    margin: 15px;
-    border-radius: 30px;
-    padding: 10px 20px;
-    border: none;
-    color: white;
-    background-color: #d7263d;
-    cursor: pointer;
-    transition: all 0.5s;
-}
-button:hover{
-    background-color: #ffffff;
-    color: black;
 
-}
+
 .home3{
     background-color: white;
     height: 100vh;
@@ -173,21 +216,51 @@ button:hover{
     color: #000000;
     
 }
+
 .card-showcase{
     width: 250px;
 }
+.card-showcase:hover{
+    translate: 0px -20px;
+}
+.card-showcase:nth-child(1){
+    transition-delay: 0ms;
+    transition-property: transform, opacity, filter;
+}
 .card-showcase:nth-child(2){
     transition-delay: 200ms;
+    transition-property: transform, opacity, filter;
 }
 .card-showcase:nth-child(3){
     transition-delay: 400ms;
+    transition-property: transform, opacity, filter;
 }
 .card-showcase:nth-child(4){
     transition-delay: 600ms;
+    transition-property: transform, opacity, filter;
+}
+.card-showcase:nth-child(5){
+    transition-delay: 800ms;
+    transition-property: transform, opacity, filter;
+}
+.card-showcase:nth-child(6){
+    transition-delay: 1000ms;
+    transition-property: transform, opacity, filter;
+}
+.card-showcase:nth-child(7){
+    transition-delay: 1200ms;
+    transition-property: transform, opacity, filter;
 }
 .flex{
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+}
+.flex-main-between{
+    justify-content: space-around;
+}
+.flex-center{
+    justify-content: center;
 }
 .image{
     margin: 0 0 30px;
@@ -201,6 +274,9 @@ button:hover{
     min-height: fit-content;
     border-left: 3px solid red;
 }
+.services{
+    width: 1200px;
+}
 .feedback-container:nth-child(2){
     transition-delay: 200ms;
 }
@@ -210,8 +286,10 @@ button:hover{
 .home4{
     background-image: url(./img/home1.jpg);
     height: 50vh;
-    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
     text-align: center;
     vertical-align: middle;
     display: flex;
@@ -236,7 +314,7 @@ button:hover{
     color: white;
 }
 .home6{
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("./img/tokyo.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -252,7 +330,7 @@ button:hover{
 .home6 span{
     font-size: 42px;
     font-weight: 600;
-    color: #d7263d;
+    color: #fff;
 }
 .home6 p, .home6 label{
     color: #fff;
@@ -296,11 +374,14 @@ select{
     background-color: rgba(32, 32, 32, 0.5);
     background-blend-mode: multiply;
 }
+.background-tint-gradient{
+    background-image: linear-gradient(to right, rgba(255, 94, 0, 0.5) , #ffee00);
+}
 .hidden{
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
-    transition: all 1.5s;
+    transition: transform 1.5s, opacity 1.5s, filter 1.5s, translate 1.5s;
 }
 .show{
     opacity: 1;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>1ne Travel and Tours</title>
 </head>
 <body>
     <header>
@@ -21,9 +21,12 @@
         </ul>
         
     </header>
-    <div class="home">
-        <h1 class="hidden">FROM DREAM TO DESTINATION</h1>
-        <p class="hidden">Let's turn your wanderlust into reality</p>
+    <div class="home background-tint">
+        <h2 class="home-content hidden">1ne Travel and Tours</h2>
+        <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
+        
+        <p class="home-content hidden">Travel the world, one adventure at a time</p><br>
+        <button class="home-content hidden" onclick="window.location.href='./index.php#contact';">Start Your Journey Now</button>
     </div>
     <div class="home2 background-tint" id="about">
         <span class="hidden">TRAVEL
@@ -32,49 +35,75 @@
         <span style="font-weight: bold; color: #d7263d;">LESS.</span>
         
         <p class="hidden">We are a travel agency that provide diverse travel services to clients all <b>across the country</b>.<br> Founded in <b>2022</b>, we specialize in assisting you in your travel needs.</p>
-        <button class="hidden">Find Out More</button>
+        <button id="button" class="hidden">Find Out More</button>
     </div>
     <div class="home3" id="services">
         <p class="hidden" style="color: grey;">What We Offer</p>
         <h1 class="hidden">SERVICES</h1>
         <br>
-        <div class="flex">
-            <div class="card-showcase hidden">
-                <div class="image">
-                    <img src="./img/philippines.jpg" alt="">
+        <div class="services">
+            <div class="flex flex-center">
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/booking.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>INTERNATIONAL & DOMESTIC BOOKING</h4>
+                    </div>
                 </div>
-                <div class="description">
-                    <h4>INTERNATIONAL & DOMESTIC BOOKING</h4>
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/hotel-reservation.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>HOTEL RESERVATION</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="card-showcase hidden">
-                <div class="image">
-                    <img src="./img/philippines.jpg" alt="">
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/passport-appointment.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>PASSPORT APPOINTMENT</h4>
+                    </div>
                 </div>
-                <div class="description">
-                    <h4>HOTEL RESERVATION</h4>
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/visa.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>VISA ASSISTANCE</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="card-showcase hidden">
-                <div class="image">
-                    <img src="./img/philippines.jpg" alt="">
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/mice.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>MICE</h4>
+                    </div>
                 </div>
-                <div class="description">
-                    <h4>PASSPORT APPOINTMENT</h4>
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/joiners.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>JOINERS Tour</h4>
+                    </div>
+                    
                 </div>
-            </div>
-            <div class="card-showcase hidden">
-                <div class="image">
-                    <img src="./img/philippines.jpg" alt="">
-                </div>
-                <div class="description">
-                    <h4>VISA ASSISTANCE</h4>
+                <div class="card-showcase hidden">
+                    <div class="image">
+                        <img src="./img/2g0.jpg" alt="">
+                    </div>
+                    <div class="description">
+                        <h4>2GO Ticketing</h4>
+                    </div>
                 </div>
             </div>
         </div>
-        <button class="hidden">Learn More</button>
     </div>
-    <div class="home4">
+    <div class="home4" id="feedback">
         <p style="color: #fff;" class="hidden">Tried our services before?</p>
         <h3 style="color: #d7263d;" class="hidden"> <b>Give us a feedback!</b> </h3>
         <form action="sendmail.php" method="POST" class="hidden">
@@ -85,7 +114,7 @@
         </form>
         
     </div>
-    <div class="home5" id="feedback">
+    <div class="home5">
 
         <p class="hidden" style="color: grey;">What Our Customers Say</p>
         <h1 class="hidden">Reviews</h1><br>
@@ -103,16 +132,16 @@
                 <br><br><b>-yung nagsabe hahaha</b>
             </div>
         </div>
-        <button class="hidden" onclick="window.location.replace('./feedback.html')">SEE ALL</button>
+        <button id="button" class="hidden" onclick="window.location.replace('./feedback.html')">SEE ALL</button>
     </div>
     <div class="home6" id="contact">
-        <div class="flex">
+        <div class="flex flex-main-center">
             <div class="form hidden">
-                <span>Get in touch with us</span>
+                <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
                 
                 <p><b>Phone:</b> (044) 760 9014</p>
                 <p><b>Email:</b> onetravelandtours@yahoo.com</p><br>
-                <p>Reach out to us for any business enquiries, partnership proposals, and everything else in between! </p>
+                <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
                 <hr>
             <form action="">
                 <div class="flex">
@@ -141,7 +170,7 @@
             </form>
             </div>
             <div class="contact hidden">
-                <span>Located in</span><br>
+                <span><b style="color: #d7263d;">Located</b> in</span><br>
                 <p><b>Address:</b> Unit 205 CDS Bldg Gen Alejo Hiway Poblacion Bustos 3007 Bulacan, Philippines</p>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.7365812873004!2d120.91431897572036!3d14.951762185577206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397aaa077444cd9%3A0xc0db8742e8fb2e8!2sNesabel%20Corporation!5e0!3m2!1sen!2sph!4v1682242092278!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -153,9 +182,11 @@
         window.addEventListener("scroll", function() {
             var header = document.querySelector('header');
             header.classList.toggle("scrolled", window.scrollY > 0);
-            if(window.scrollY > 0){
-                
+            var navItemAnchor = document.getElementsByTagName('a');
+            for(let i = 0; i < navItemAnchor.length; i++){
+                navItemAnchor[i].classList.toggle("nav-item-scrolled", window.scrollY > 0);
             }
+            
             
         });
     </script>
