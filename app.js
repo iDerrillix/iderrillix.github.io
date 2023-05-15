@@ -14,7 +14,7 @@ function feedback(){
     const name = document.querySelector("#fname");
     const email = document.querySelector("#femail");
     if(name.value != "" && email.value != ""){
-        alert("Feedback Successfuly Sent!");
+        alert("Feedback Successfully Sent!");
     } else {
         alert("Some fields are missing");
     }

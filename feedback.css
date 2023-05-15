@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    
+  }
+  body{
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+.banner{
+    background-image: url(./img/philippines.jpg);
+    height: 35vh;
+    text-align: center;
+    background-position: center;
+}
+.banner h3, .banner p{
+    top: 50%;
+    position: relative;
+    color: #fff;
+
+}
+
+.background-tint {
+    background-color: rgba(32, 32, 32, 0.5);
+    background-blend-mode: multiply;
+}
+header{
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    transition: 0.6s;
+    left: 50%;
+    top: 2%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background-color: white;
+    color: black;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+}
+header img{
+    width: 60px;
+    object-fit: cover;
+}
+header ul li{
+    list-style: none;
+}
+header ul li a{
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    margin: 0px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+header ul li a:hover{
+    color: #d7263d;
+
+}
+.content{
+    height: 100vh;
+    margin: 0 15%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 20px;
+}
+.testimonial{
+    color: #303030;
+    width: 300px;
+    min-height: 300px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+}
+.message{
+    height: 70%;
+}
+.customer-name{
+    margin-top: 15px;
+    font-weight: bold;
+}
+.date{
+    font-style: italic;
+}
+.checked{
+    color: orange;
+}
+.home6{
+    min-height: 100vh;
+    background-image: url("./img/home.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 100px;
+}
+.home6 span{
+    font-size: 42px;
+    font-weight: 600;
+    color: #fff;
+}
+.home6 p, .home6 label{
+    color: #fff;
+    font-size: 16px;
+}
+.form, .contact{
+    text-align: start;
+}
+input, textarea, select{
+    box-sizing:border-box;
+    width: 100%;
+    padding: 0.6em 0.3em;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 0.3em;
+    color: #ffffff;
+    outline: none;
+    font-weight: 400;
+    margin-bottom: 0.6em;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid transparent;
+}
+input[type='submit']{
+    background-color: #d7263d;
+    color: white;
+    border: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+input[type='submit']:hover{
+    background-color: #d36473;
+}
+input:focus, textarea:focus{
+    border: 1px solid #d0d0d0;
+}
+select{
+    color: #d0d0d0;
+}
+.background-tint {
+    background-color: rgba(32, 32, 32, 0.5);
+    background-blend-mode: multiply;
+}
+.background-tint-dark {
+    background-color: rgba(32, 32, 32, 1);
+    background-blend-mode: multiply;
+}
+.flex{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.flex-main-between{
+    justify-content: space-around;
+}
+.flex-center{
+    justify-content: center;
+}
+footer{
+    height: 50px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    text-align: start;
+    padding-top: 20px;
+    padding-left: 20px;
+}

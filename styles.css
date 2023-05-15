@@ -11,6 +11,7 @@ html {
   body{
     scroll-snap-type: y mandatory;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 header{ 
     
@@ -75,7 +76,7 @@ header ul li a:hover{
     background-blend-mode:overlay;
   }
 .home{
-    background-image: url("./img/home.jpg");
+    background-image: url("./img/pic1.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -162,8 +163,8 @@ header ul li a:hover{
 
 .home2{
     height: 100vh;
-    background-image: url("./img/japanese.jpg");
-    background-position: center;
+    background-image: url("./img/pic2.jpg");
+    background-position: top;
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment: fixed;
@@ -315,7 +316,7 @@ span{
 }
 .home6{
     min-height: 100vh;
-    background-image: url("./img/tokyo.jpg");
+    background-image: url("./img/home.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -370,12 +371,25 @@ input:focus, textarea:focus{
 select{
     color: #d0d0d0;
 }
+footer{
+    height: 50px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    text-align: start;
+    padding-top: 20px;
+    padding-left: 20px;
+}
 .background-tint {
     background-color: rgba(32, 32, 32, 0.5);
     background-blend-mode: multiply;
 }
+.background-tint-dark {
+    background-color: rgba(32, 32, 32, 1);
+    background-blend-mode: multiply;
+}
 .background-tint-gradient{
-    background-image: linear-gradient(to right, rgba(255, 94, 0, 0.5) , #ffee00);
+    background-image: linear-gradient(to right, rgba(255, 94, 0, 0.9) , #ffee00);
 }
 .hidden{
     opacity: 0;

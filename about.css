@@ -1,0 +1,151 @@
+
+.page1{
+    height: 100vh;
+    background-image: url("./img/bgc.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-details2{
+    color: white;
+    width: 35%;
+    display: inline-block;
+    text-align: left;
+    font-size: 22px;
+}
+.about-details1{
+    color: white;
+    display: inline-block;
+    width: 35%;
+}
+.about-details1 h1{
+    font-size: 52px;
+    text-align: left;
+    
+    display: inline-block;
+}
+.page2{
+    min-height: 100vh;
+    background-image: url("./img/japanese.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.text-side{
+    color: white;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    font-size: 22px;
+
+}
+.videos-side{
+    width: 35%;
+}
+.page3{
+    min-height: 100vh;
+    background-image: url("./img/tokyo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+}
+.vision_mission{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.mission, .vision{
+    padding: 20px;
+    width: 500px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+}
+.mission p, .vision p{
+    display: inline-block;
+    text-align: center;
+}
+.page3 p{
+    width: 60%;
+}
+.page4{
+    min-height: 100vh;
+    background-image: url("./img/korea.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+    padding: 0px 450px;
+}
+.pge4 p{
+    font-size: 19px;
+}
+.page4 h3{
+    font-size: 32px;
+}
+footer{
+    height: 50px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    text-align: start;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: transform 1.5s, opacity 1.5s, filter 1.5s, translate 1.5s;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+}
+.slide{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+}
+.about-details2{
+    transition-delay: 200ms;
+}
+.video-side{
+    transition-delay: 200ms;
+}
+.mission{
+    transition-delay: 200ms;
+}
+.vision{
+    transition-delay: 400ms;
+}

@@ -21,7 +21,7 @@
         </ul>
         
     </header>
-    <div class="home background-tint">
+    <div class="home background-tint-dark">
         <h2 class="home-content hidden">1ne Travel and Tours</h2>
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
         
@@ -35,7 +35,7 @@
         <span style="font-weight: bold; color: #d7263d;">LESS.</span>
         
         <p class="hidden">We are a travel agency that provide diverse travel services to clients all <b>across the country</b>.<br> Founded in <b>2022</b>, we specialize in assisting you in your travel needs.</p>
-        <button id="button" class="hidden">Find Out More</button>
+        <button id="button" class="hidden" onclick="window.location.href='about.php';">Find Out More</button>
     </div>
     <div class="home3" id="services">
         <p class="hidden" style="color: grey;">What We Offer</p>
@@ -132,9 +132,9 @@
                 <br><br><b>-yung nagsabe hahaha</b>
             </div>
         </div>
-        <button id="button" class="hidden" onclick="window.location.replace('./feedback.html')">SEE ALL</button>
+        <button id="button" class="hidden" onclick="window.location.replace('./feedback.php')">SEE ALL</button>
     </div>
-    <div class="home6" id="contact">
+    <div class="home6 background-tint-dark" id="contact">
         <div class="flex flex-main-center">
             <div class="form hidden">
                 <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
@@ -177,19 +177,10 @@
         </div>
         
     </div>
-    <script type="text/javascript">
-        console.log("test");
-        window.addEventListener("scroll", function() {
-            var header = document.querySelector('header');
-            header.classList.toggle("scrolled", window.scrollY > 0);
-            var navItemAnchor = document.getElementsByTagName('a');
-            for(let i = 0; i < navItemAnchor.length; i++){
-                navItemAnchor[i].classList.toggle("nav-item-scrolled", window.scrollY > 0);
-            }
-            
-            
-        });
-    </script>
+    <footer>
+        Copyright © 2022 1NE Travel and Tours. All rights reserved.
+    </footer>
+    <script src="stickynav.js"></script>
     <script defer src="app.js"></script>
 </body>
 </html>
