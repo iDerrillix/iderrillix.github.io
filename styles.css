@@ -1,18 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
+/* ALL CSS */
 *{
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 html {
+    height: 100vh;
     scroll-behavior: smooth;
-    
-  }
-  body{
+}
+html, body {
+    overflow-x: hidden;
+}
+body{
+    min-width: 100vw;
+    position: relative;
+    display: block;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
-    overflow-x: hidden;
-  }
+}
 header{ 
     
     /* border-radius: 10px;
@@ -38,28 +45,26 @@ header{
     top: 2%;
     transform: translateX(-50%);
     z-index: 999;
+    width: 100%;
     
 }
 .scrolled{
     background-color: white;
-    color: black;
     top: 0;
     margin: 0;
     border-radius: 0;
     width: 100%;
     box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
 }
-.nav-item-scrolled{
-    color: black;
-}
+
 header img{
     width: 60px;
     object-fit: cover;
 }
-header ul li{
+header .nav-links ul li, .dropdown_menu li{
     list-style: none;
 }
-header ul li a{
+header .nav-links ul li a, .dropdown_menu li a{
     color: rgb(255, 255, 255);
     font-weight: 600;
     margin: 0px 20px;
@@ -67,22 +72,59 @@ header ul li a{
     font-size: 12px;
     transition: all 0.3s;
 }
-header ul li a:hover{
+header .nav-links ul li a:hover, .dropdown_menu li a:hover{
     color: #d7263d;
 
+}
+.nav-item-scrolled{
+    color: black !important;
+}
+.toggle-btn{
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+.dropdown_menu{
+    display: none;
+    position: fixed;
+    right: 2rem;
+    top: 60px;
+    height: 0px;
+    width: 300px;
+    background-color: rgba(255 ,255 , 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    transition: height 0.5s;
+    z-index: 999;
+}
+.dropdown_menu.open{
+    height: fit-content;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .background-tint {
     background-color: rgba(200,100,0,0.9);
     background-blend-mode:overlay;
   }
 .home{
+    width: 100%;
     background-image: url("./img/pic1.jpg");
     height: 100vh;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     text-align: center;
     vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 #button{
     margin-top: 15px;
@@ -107,28 +149,20 @@ header ul li a:hover{
     font-weight: 500;
     color: #fff;
     margin: 0;
-    position: relative;
-    top: 40%;
 }
 .home h2{
     color: #fff;
     margin: 0;
     
     letter-spacing: 0.2rem;
-    position: relative;
-    top: 40%;
 }
 .home p{
     color: #fff;
     margin: 0;
-    position: relative;
     letter-spacing: 0.2rem;
-    top: 40%;
     font-size: 26px;
 }
 .home button{
-    position: relative;
-    top: 40%;
     font-size: 20px;
     margin-top: 15px;
     border-radius: 30px;
@@ -194,6 +228,7 @@ span{
 
 
 .home3{
+    width: 100%;
     background-color: white;
     height: 100vh;
     background-position: center;
@@ -253,6 +288,7 @@ span{
     transition-property: transform, opacity, filter;
 }
 .flex{
+    width: 90%;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -277,6 +313,7 @@ span{
 }
 .services{
     width: 1200px;
+    height: fit-content;
 }
 .feedback-container:nth-child(2){
     transition-delay: 200ms;
@@ -410,5 +447,82 @@ footer{
     .hidden{
         transition: none;
     }
+}
+
+@media (max-width: 992px){
+    header{
+        justify-content: space-around;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .nav-links{
+        display: none;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+    .home, .home2, .home3, .home4, .home5, .home6{
+        width: 100%;
+        padding: 0 25px;
+    }
+    .home h2, .home6 span{
+        font-size: 20px;
+    }
+    .home h1, .home2 h1, .home2 span{
+        font-size: 40px;
+    }
+    .home p{
+        font-size: 12px;
+    }
+    .home button{
+        font-size: 16px;
+        padding: 7px 25px;
+    }
+    .home2 p{
+        font-size: 16px;
+    }
+    .card-showcase{
+        width: 150px;
+    }
+    .image img{
+        width: 150px;
+        height: 150px;
+    }
+    .image{
+        margin: 0 !important;
+    }
+    .home3{
+        padding: 25px 0px;
+        height: fit-content;
+    }
+    .description h4{
+        font-size: 12px;
+    }
+    .services{
+        width: 100%;
+    }
+    .home5, .home6 p, .home6 label{
+        font-size: 11px;
+    }
+    .feedback-container{
+        width: 100%;
+        height: fit-content;
+    }
+    .home6{
+        padding: 0 !important;
+    }
+    .form{
+        padding: 10px;
+        text-align: center;
+    }
+    iframe{
+        width: 100%;
+    }
+    footer{
+        font-size: 12px;
+    }
+    
+    
 }
 

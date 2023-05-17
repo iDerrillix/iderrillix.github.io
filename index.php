@@ -5,22 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>1ne Travel and Tours</title>
 </head>
 <body>
-    <header>
-        <img src="./img/marwinlogowhiters.png" alt="">
-        <ul>
-            <li>
-                <a href="#">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#feedback">Feedback</a>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-        
-    </header>
+    <?php 
+        include 'header.php';
+    ?>
     <div class="home background-tint-dark">
         <h2 class="home-content hidden">1ne Travel and Tours</h2>
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
@@ -42,7 +33,7 @@
         <h1 class="hidden">SERVICES</h1>
         <br>
         <div class="services">
-            <div class="flex flex-center">
+            <div class="flex flex-center" >
                 <div class="card-showcase hidden">
                     <div class="image">
                         <img src="./img/booking.jpg" alt="">
@@ -118,7 +109,7 @@
 
         <p class="hidden" style="color: grey;">What Our Customers Say</p>
         <h1 class="hidden">Reviews</h1><br>
-        <div class="flex">
+        <div class="flex flex-center">
             <div class="feedback-container hidden">
                 testawdtawdt tawd awdtaw dtawd awtd awdtaw dtawd tawd awtd awtd awdt awdt awdta wdawtd awtd awtd awtd awtd watdaw dtw dawtd awtd wtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd"
                 <br><br><b>-yung nagsabe hahaha</b>
@@ -135,7 +126,7 @@
         <button id="button" class="hidden" onclick="window.location.replace('./feedback.php')">SEE ALL</button>
     </div>
     <div class="home6 background-tint-dark" id="contact">
-        <div class="flex flex-main-center">
+        <div class="flex">
             <div class="form hidden">
                 <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
                 
@@ -182,5 +173,16 @@
     </footer>
     <script src="stickynav.js"></script>
     <script defer src="app.js"></script>
+    <script>
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const dropdownMenu = document.querySelector('.dropdown_menu');
+        toggleBtn.onclick = function(){
+            dropdownMenu.classList.toggle('open');
+
+            const isOpen = dropdownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+    </script>
 </body>
 </html>
