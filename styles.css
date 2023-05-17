@@ -72,8 +72,8 @@ header .nav-links ul li a, .dropdown_menu li a{
     font-size: 12px;
     transition: all 0.3s;
 }
-header .nav-links ul li a:hover, .dropdown_menu li a:hover{
-    color: #d7263d;
+header .nav-links ul li a:hover, .dropdown_menu li a:hover, .nav-item-scrolled a:hover{
+    color: #d7263d !important;
 
 }
 .nav-item-scrolled{
