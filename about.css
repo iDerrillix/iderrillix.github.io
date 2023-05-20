@@ -1,4 +1,23 @@
-
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+html, body {
+    overflow-x: hidden;
+}
+body{
+    min-width: 100vw;
+    position: relative;
+    display: block;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
 .page1{
     height: 100vh;
     background-image: url("./img/bgc.jpg");
@@ -10,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .about-details2{
     color: white;
@@ -148,4 +168,111 @@ footer{
 }
 .vision{
     transition-delay: 400ms;
+}
+#inner-div{
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+@media (max-width: 992px){
+    header{
+        justify-content: space-around;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .nav-links{
+        display: none;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+    
+    .page1{
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+    }
+    .about-details1{
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .about-details1 h1{
+        font-size: 42px;
+        text-align: center;
+    }
+    .about-details2{
+        width: 100%;
+        padding: 20px;
+    }
+    .about-details2 p{
+        font-size: 18px;
+        text-align: center;
+    }
+    #inner-div{
+        flex-wrap: wrap;
+        align-content: center;
+        width: 100%;
+    }
+    .text-side{
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .text-side h3{
+        font-size: 22px;
+    }
+    .text-side p{
+        font-size: 16px;
+    }
+
+    .video-side{
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .video-side iframe{
+        width: 100%;
+        height: fit-content;
+    }
+    .page3{
+        padding: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+    }
+    .page3 p{
+        font-size: 14px;
+        width: 100%;
+    }
+    .vision_mission{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .page4{
+        padding: 20px;
+    }
+    .page4 h3{
+        font-size: 30px;
+    }
+    .home6{
+        width: 100%;
+        padding: 20px !important;
+    }
+    .home6 span{
+        font-size: 20px;
+    }
+    .home6, .home6 label{
+        font-size: 11px;
+    }
+    .contact iframe{
+        width: 100%;
+    }
+    footer{
+        font-size: 12px;
+    }
+    
 }

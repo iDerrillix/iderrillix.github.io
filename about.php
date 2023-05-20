@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="feedback.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
+<header>
         <img src="./img/marwinlogowhiters.png" alt="">
-        <ul>
-            <li>
-                <a href="./index.php#">Home</a>
-                <a href="./index.php#about">About</a>
-                <a href="./index.php#services">Services</a>
-                <a href="./index.php#feedback">Feedback</a>
-                <a href="./index.php#contact">Contact</a>
-            </li>
-        </ul>
-        
+        <div class="nav-links">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#feedback">Feedback</a>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="toggle-btn" style="color: black;">
+            <i class="fa-solid fa-bars" id="hamburger"></i>
+        </div>
     </header>
+    <div class="dropdown_menu">
+            <li><a href="index.php#">Home</a></li>
+            <li><a href="index.php#about">About</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="index.php#feedback">Feedback</a></li>
+            <li><a href="index.php#contact">Contact</a></li>
+        </div>
+        <script>
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const dropdownMenu = document.querySelector('.dropdown_menu');
+        toggleBtn.onclick = function(){
+            dropdownMenu.classList.toggle('open');
+
+            const isOpen = dropdownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+    </script>
     <div class="page1 background-tint-dark">
         <div class="about-details1 hidden">
             <h1>We want you to experience the best journey of your life!</h1>
@@ -31,10 +55,7 @@
         </div>
     </div>
     <div class="page2 background-tint-dark">
-        <div class="div" style="display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;">
+        <div class="div" id="inner-div">
         <div class="text-side hidden">
             <h3>At 1NE Travel and Tours, we believe that <b style="color: #d7263d;">travel</b> is <b style="color: #d7263d;">more than just visiting new places</b>.</h3>
             <br>

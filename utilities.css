@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+html,body{
+    overflow-x: hidden;
+}
+body{
+    background-color: #f7f9fd;
+    scroll-snap-type: y mandatory;
+}
+
+/* Container Styles*/
+.container{
+    padding: 1.25em 0.9em;
+    background-color: #fff;
+    border-radius: 1.25rem;
+    width: 90%;
+}
+.center-div{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+.center-text{
+    text-align: center;
+}
+.shadow{
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+}
+
+/* Input Styles*/
+.text-box{
+   color: #363d55;
+   border: 1px solid #d0d0d0;
+   padding: 0.6em 0.3em; 
+   width: 100%;
+   display: block;
+   border-radius: 0.3em;
+   outline: none;
+   margin-bottom: 0.6em;
+}
+.text-box:focus{
+    border-color: #587ef4;
+}
+
+.input-btn{
+    font-size: 1em;
+    margin-top: 0.8em;
+    background-color: #587ef4;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 0.6em 1.2em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+.input-btn:hover{
+    background-color: #819cf0;
+}
+
+/* Flex Styles*/
+.flex{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-row{
+    flex-direction: row;
+}
+.flex-col{
+    flex-direction: column;
+}
+.flex-gap-10{
+    gap: 10px;
+}
+.flex-gap-20{
+    gap: 20px;
+}
+.flex-main-center{
+    justify-content: center;
+}
+.flex-main-spacebetween{
+    justify-content: space-between;
+}
+.flex-main-spacearound{
+    justify-content: space-around;
+}
+.flex-main-spaceevenly{
+    justify-content: space-evenly;
+}
+.flex-main-start{
+    justify-content: flex-start;
+}
+.flex-main-end{
+    justify-content: flex-end;
+}
+.flex-cross-center{
+    align-items: center;
+}
+.flex-cross-start{
+    align-items:flex-start;
+}
+.flex-cross-end{
+    align-items:flex-end;
+}

@@ -13,7 +13,7 @@
         include 'header.php';
     ?>
     <div class="home background-tint-dark">
-        <h2 class="home-content hidden">1ne Travel and Tours</h2>
+        <img src="./img/marwinlogowhiters.png" alt="" width="120px" class="hidden">
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
         
         <p class="home-content hidden">Travel the world, one adventure at a time</p><br>
@@ -173,16 +173,6 @@
     </footer>
     <script src="stickynav.js"></script>
     <script defer src="app.js"></script>
-    <script>
-        const toggleBtnIcon = document.querySelector('.toggle-btn i');
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const dropdownMenu = document.querySelector('.dropdown_menu');
-        toggleBtn.onclick = function(){
-            dropdownMenu.classList.toggle('open');
-
-            const isOpen = dropdownMenu.classList.contains('open');
-            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        }
-    </script>
+    
 </body>
 </html>

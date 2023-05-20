@@ -1,0 +1,9 @@
+body{
+    background-image: url("./layered-waves-haikei.svg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: top; 
+}
+.nav{
+    background-color: #587ef4;
+}

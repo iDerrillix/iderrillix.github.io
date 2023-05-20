@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 <header>
         <img src="./img/marwinlogowhiters.png" alt="">
         <div class="nav-links">
@@ -22,3 +28,16 @@
             <li><a href="#feedback">Feedback</a></li>
             <li><a href="#contact">Contact</a></li>
         </div>
+        <script>
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const dropdownMenu = document.querySelector('.dropdown_menu');
+        toggleBtn.onclick = function(){
+            dropdownMenu.classList.toggle('open');
+
+            const isOpen = dropdownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+    </script>
+</body>
+</html>
