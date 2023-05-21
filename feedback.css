@@ -2,16 +2,23 @@
 *{
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 html {
+    height: 100vh;
     scroll-behavior: smooth;
-    
-  }
-  body{
+}
+html, body {
+    overflow-x: hidden;
+}
+body{
+    min-width: 100vw;
+    position: relative;
+    display: block;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
-    overflow-x: hidden;
-  }
+}
 .banner{
     background-image: url(./img/philippines.jpg);
     height: 35vh;
@@ -29,50 +36,12 @@ html {
     background-color: rgba(32, 32, 32, 0.5);
     background-blend-mode: multiply;
 }
-header{
-    border-radius: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-self: center;
-    justify-self: center;
-    transition: 0.6s;
-    left: 50%;
-    top: 2%;
-    transform: translateX(-50%);
-    z-index: 999;
-    background-color: white;
-    color: black;
-    top: 0;
-    margin: 0;
-    border-radius: 0;
-    width: 100%;
-}
-header img{
-    width: 60px;
-    object-fit: cover;
-}
-header ul li{
-    list-style: none;
-}
-header ul li a{
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    margin: 0px 20px;
-    text-decoration: none;
-    font-size: 12px;
-    transition: all 0.3s;
-}
-header ul li a:hover{
-    color: #d7263d;
-
+.nav-links ul li a{
+    color: rgb(0, 0, 0) !important;
 }
 .content{
-    height: 100vh;
+    min-height: 100vh;
+    max-height: fit-content;
     margin: 0 15%;
     padding: 20px;
     display: flex;
@@ -187,4 +156,41 @@ footer{
     text-align: start;
     padding-top: 20px;
     padding-left: 20px;
+}
+@media (max-width: 992px){
+    header{
+        justify-content: space-around;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .nav-links{
+        display: none;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+    .testimonial{
+        width: 100%;
+    }
+    .content{
+        
+        margin: 0 10px;
+    }
+    .home6{
+        width: 100%;
+        padding: 20px !important;
+    }
+    .home6 span{
+        font-size: 20px;
+    }
+    .home6, .home6 label{
+        font-size: 11px;
+    }
+    .contact iframe{
+        width: 100%;
+    }
+    footer{
+        font-size: 12px;
+    }
 }

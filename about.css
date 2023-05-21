@@ -18,6 +18,9 @@ body{
     scroll-snap-type: y mandatory;
     overflow-y: auto;
 }
+.nav-links ul li a{
+    color: black !important;
+}
 .page1{
     height: 100vh;
     background-image: url("./img/bgc.jpg");

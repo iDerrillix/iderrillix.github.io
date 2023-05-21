@@ -16,11 +16,11 @@
         <div class="nav-links">
             <ul>
                 <li>
-                    <a href="#">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#services">Services</a>
-                    <a href="#feedback">Feedback</a>
-                    <a href="#contact">Contact</a>
+                <a href="./index.php#">Home</a>
+                <a href="./index.php#about">About</a>
+                <a href="./index.php#services">Services</a>
+                <a href="./index.php#feedback">Feedback</a>
+                <a href="./index.php#contact">Contact</a>
                 </li>
             </ul>
         </div>
