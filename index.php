@@ -13,6 +13,24 @@
     <?php 
         include 'header.php';
     ?>
+    <?php 
+        if(isset($_POST['submit'])){
+            $cname = $_POST['cname'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $options = $_POST['options'];
+            $message = $_POST['message'];
+
+            $query = "INSERT INTO contact_form VALUES (null, '$cname', '$phone', '$email', '$options', '$message', null, 'Pending');";
+            $result = mysqli_query($con, $query);
+            $_POST = array();
+            if($result){
+                echo "<script>alert('Success'); window.location.href='index.php#contact';</script>";
+            } else {
+                echo "<script>alert('Failed'); ";
+            }
+        }
+    ?>
     <div class="home background-tint-dark">
         <img src="./img/<?php echo $row['logo_path'];?>" alt="" width="120px" class="hidden">
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
@@ -59,7 +77,7 @@
         <form action="sendmail.php" method="POST" class="hidden">
             <input type="text" name="fname" id="fname" placeholder="Your Name" required>
             <input type="email" name="femail" id="femail" placeholder="Your Email" required>
-            <textarea name="fmessage" id="" cols="30" rows="5" placeholder="Your Feedback"></textarea required>
+            <textarea name="fmessage" id="" cols="30" rows="5" placeholder="Your Feedback" required></textarea >
             <input type="submit" value="Send" onclick="feedback();" name="submit">
         </form>
         
@@ -99,19 +117,19 @@
                 <p><b>Email:</b> <?php echo $row['email_add']; ?></p><br>
                 <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
                 <hr>
-            <form action="">
+            <form action="index.php" method="POST">
                 <div class="flex">
                     <div style="width: 100%;">
                         <label for="cname">Full Name</label><br>
                         <input type="text" name="cname" id="" placeholder="e.g. Jonas C. Vasallo" required><br>
                         <label for="phone">Contact Number</label><br>
-                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required>
+                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required pattern="[0][9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="11 Digit Contact Number (09XXXXXXXXX)">
                     </div>
                     <div class="div" style="width: 100%;">
                         <label for="email">Email Address</label><br>
                         <input type="email" name="email" id="" placeholder="e.g. example@mail.com" required><br>
                         <label for="inquiry">Choose Option</label><br>
-                        <select name="options" id="options">
+                        <select name="options" id="options" required>
                             <option value="" disabled selected>Select your option</option>
                             <option value="Inquire">Inquire</option>
                             <option value="Help">Help</option>
@@ -120,7 +138,7 @@
                 </div>
                 <label for="message">Message</label><br>
                 <textarea name="message" id="" cols="30" rows="10" placeholder="Type your message here..." required></textarea>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="submit">
 
 
             </form>

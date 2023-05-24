@@ -74,20 +74,20 @@
         <br>
         <form action="branding.php" method="POST" enctype="multipart/form-data">
             
-            <input type="tel" name="phone" id="" placeholder="Phone/Tel Number" class="text-box" value="<?php echo $row['contact_no']; ?>">
-            <input type="email" name="email" id="" placeholder="Email Address" class="text-box" value="<?php echo $row['email_add']; ?>">
-            <input type="text" name="address" id="" placeholder="Address" class="text-box" value="<?php echo $row['address']; ?>">
-            <input type="text" name="map" id="" placeholder="Google Maps Embedded Map" class="text-box" placeholder="Paste Google Maps Embedded Map Link" value="<?php echo str_replace('"', "'",$row['mapsEmbed']);?>">
+            <input type="tel" name="phone" id="" placeholder="Phone/Tel Number" class="text-box" value="<?php echo $row['contact_no']; ?>" required>
+            <input type="email" name="email" id="" placeholder="Email Address" class="text-box" value="<?php echo $row['email_add']; ?>" required>
+            <input type="text" name="address" id="" placeholder="Address" class="text-box" value="<?php echo $row['address']; ?>" required>
+            <input type="text" name="map" id="" placeholder="Google Maps Embedded Map" class="text-box" placeholder="Paste Google Maps Embedded Map Link" value="<?php echo str_replace('"', "'",$row['mapsEmbed']);?>" required>
             <p>Company Logo</p>
             <input type="file" name="file" id="" placeholder="Company Logo" class="text-box">
             <div class="flex flex-main-spacebetween flex-gap-10">
                <div style="width: 50%;">
                     <p>Mission</p>
-                    <textarea name="mission" id="mission" cols="15" rows="10" placeholder="Mission" class="text-box"><?php echo $row['mission']; ?></textarea>
+                    <textarea name="mission" id="mission" cols="15" rows="10" placeholder="Mission" class="text-box" required><?php echo $row['mission']; ?></textarea>
                </div>
                 <div style="width: 50%;">  
                     <p>Vision</p>
-                    <textarea name="vision" id="" cols="15" rows="10" placeholder="Vision" class="text-box"><?php echo $row['vision']; ?></textarea>
+                    <textarea name="vision" id="" cols="15" rows="10" placeholder="Vision" class="text-box" required><?php echo $row['vision']; ?></textarea>
                 </div>
             </div>
             

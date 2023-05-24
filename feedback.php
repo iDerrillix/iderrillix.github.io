@@ -1,3 +1,9 @@
+<?php require 'dbcon.php';?>
+<?php 
+    $query = "SELECT * FROM company;";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,7 @@
 </head>
 <body>
 <header class="scrolled">
-        <img src="./img/marwinlogowhiters.png" alt="">
+        <img src="./img/<?php echo $row['logo_path'];?>" alt="">
         <div class="nav-links">
             <ul>
                 <li>
@@ -115,26 +121,32 @@
     </div>
     <div class="home6 background-tint-dark" id="contact">
         <div class="flex flex-main-center">
-            <div class="form hidden">
+            <div class="form hidden" style="max-width: 650px;">
+                <?php 
+                    $query = "SELECT * FROM company;";
+                    $result = mysqli_query($con, $query);
+                    $row = mysqli_fetch_assoc($result);
+
+                ?>
                 <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
                 
-                <p><b>Phone:</b> (044) 760 9014</p>
-                <p><b>Email:</b> onetravelandtours@yahoo.com</p><br>
+                <p><b>Phone:</b> <?php echo $row['contact_no']; ?></p>
+                <p><b>Email:</b> <?php echo $row['email_add']; ?></p><br>
                 <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
                 <hr>
-            <form action="">
+            <form action="index.php" method="POST">
                 <div class="flex">
                     <div style="width: 100%;">
                         <label for="cname">Full Name</label><br>
                         <input type="text" name="cname" id="" placeholder="e.g. Jonas C. Vasallo" required><br>
                         <label for="phone">Contact Number</label><br>
-                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required>
+                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required pattern="[0][9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="11 Digit Contact Number (09XXXXXXXXX)">
                     </div>
                     <div class="div" style="width: 100%;">
                         <label for="email">Email Address</label><br>
                         <input type="email" name="email" id="" placeholder="e.g. example@mail.com" required><br>
                         <label for="inquiry">Choose Option</label><br>
-                        <select name="options" id="options">
+                        <select name="options" id="options" required>
                             <option value="" disabled selected>Select your option</option>
                             <option value="Inquire">Inquire</option>
                             <option value="Help">Help</option>
@@ -143,15 +155,16 @@
                 </div>
                 <label for="message">Message</label><br>
                 <textarea name="message" id="" cols="30" rows="10" placeholder="Type your message here..." required></textarea>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="submit">
 
 
             </form>
             </div>
-            <div class="contact hidden">
+            <div class="contact hidden" style="max-width: 650px;">
                 <span><b style="color: #d7263d;">Located</b> in</span><br>
-                <p><b>Address:</b> Unit 205 CDS Bldg Gen Alejo Hiway Poblacion Bustos 3007 Bulacan, Philippines</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.7365812873004!2d120.91431897572036!3d14.951762185577206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397aaa077444cd9%3A0xc0db8742e8fb2e8!2sNesabel%20Corporation!5e0!3m2!1sen!2sph!4v1682242092278!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><b>Address:</b> <?php echo $row['address']; ?></p>
+                <?php echo $row['mapsEmbed']; ?>
+                
             </div>
         </div>
         

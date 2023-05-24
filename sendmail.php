@@ -1,5 +1,5 @@
 <?php 
-
+    require 'dbcon.php';
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -22,8 +22,13 @@
         $mail->Subject = "Feedback";
         $mail->Body = $_POST['fname'].',  We have received your concern.';
         $mail->send();
-
-        header("Location: index.php#feedback");
+        $query = "INSERT INTO feedback VALUES (null, '".$_POST['fname']."', '".$_POST['femail']."', '".$_POST['fmessage']."', null, 'New')";
+        if(mysqli_query($con, $query)){
+            header("Location: index.php#feedback");
+        } else {
+            echo 'error';
+        }
+        
     } else {
         header("Location: index.php");
     }
