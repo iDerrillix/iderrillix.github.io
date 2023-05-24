@@ -1,3 +1,9 @@
+<?php require 'dbcon.php';?>
+<?php 
+    $query = "SELECT * FROM company;";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +11,7 @@
 </head>
 <body>
 <header>
-        <img src="./img/marwinlogowhiters.png" alt="">
+        <img src="./img/<?php echo $row['logo_path'];?>" alt="">
         <div class="nav-links">
             <ul>
                 <li>

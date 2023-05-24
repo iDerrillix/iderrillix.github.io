@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
         include 'header.php';
     ?>
     <div class="home background-tint-dark">
-        <img src="./img/marwinlogowhiters.png" alt="" width="120px" class="hidden">
+        <img src="./img/<?php echo $row['logo_path'];?>" alt="" width="120px" class="hidden">
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
         
         <p class="home-content hidden">Travel the world, one adventure at a time</p><br>
@@ -34,63 +35,21 @@
         <br>
         <div class="services">
             <div class="flex flex-center" >
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/booking.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>INTERNATIONAL & DOMESTIC BOOKING</h4>
-                    </div>
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/hotel-reservation.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>HOTEL RESERVATION</h4>
-                    </div>
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/passport-appointment.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>PASSPORT APPOINTMENT</h4>
-                    </div>
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/visa.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>VISA ASSISTANCE</h4>
-                    </div>
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/mice.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>MICE</h4>
-                    </div>
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/joiners.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>JOINERS Tour</h4>
-                    </div>
-                    
-                </div>
-                <div class="card-showcase hidden">
-                    <div class="image">
-                        <img src="./img/2g0.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <h4>2GO Ticketing</h4>
-                    </div>
-                </div>
+                <?php 
+                    $query = "SELECT * FROM services;";
+                    $result = mysqli_query($con, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo '<div class="card-showcase hidden">
+                        <div class="image">
+                            <img src="./img/'.$row['sevice_imgPath'].'" alt="">
+                        </div>
+                        <div class="description">
+                            <h4>'.strtoupper($row['service_name']).'</h4>
+                        </div>
+                    </div>';
+                    }
+                ?>
+                
             </div>
         </div>
     </div>
@@ -126,12 +85,18 @@
         <button id="button" class="hidden" onclick="window.location.replace('./feedback.php')">SEE ALL</button>
     </div>
     <div class="home6 background-tint-dark" id="contact">
-        <div class="flex">
-            <div class="form hidden">
+        <div class="flex flex-main-center">
+            <div class="form hidden" style="max-width: 650px;">
+                <?php 
+                    $query = "SELECT * FROM company;";
+                    $result = mysqli_query($con, $query);
+                    $row = mysqli_fetch_assoc($result);
+
+                ?>
                 <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
                 
-                <p><b>Phone:</b> (044) 760 9014</p>
-                <p><b>Email:</b> onetravelandtours@yahoo.com</p><br>
+                <p><b>Phone:</b> <?php echo $row['contact_no']; ?></p>
+                <p><b>Email:</b> <?php echo $row['email_add']; ?></p><br>
                 <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
                 <hr>
             <form action="">
@@ -160,10 +125,11 @@
 
             </form>
             </div>
-            <div class="contact hidden">
+            <div class="contact hidden" style="max-width: 650px;">
                 <span><b style="color: #d7263d;">Located</b> in</span><br>
-                <p><b>Address:</b> Unit 205 CDS Bldg Gen Alejo Hiway Poblacion Bustos 3007 Bulacan, Philippines</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.7365812873004!2d120.91431897572036!3d14.951762185577206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397aaa077444cd9%3A0xc0db8742e8fb2e8!2sNesabel%20Corporation!5e0!3m2!1sen!2sph!4v1682242092278!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><b>Address:</b> <?php echo $row['address']; ?></p>
+                <?php echo $row['mapsEmbed']; ?>
+                
             </div>
         </div>
         

@@ -1,3 +1,6 @@
+<?php 
+    require 'dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,14 +74,19 @@
     <div class="page3 background-tint-dark">
         <p class="hidden">We pride ourselves on our attention to detail and commitment to providing our clients with the best possible travel experiences. Our goal is to make your travel dreams a reality and ensure that every aspect of your trip is seamless and stress-free.</p>
         <div class="vision_mission">
+            <?php 
+                $query = "SELECT * FROM company;";
+                $result = mysqli_query($con, $query);
+                $row = mysqli_fetch_assoc($result);
+
+            ?>
             <div class="mission hidden">
                 <h1>Our <b style="color: #d7263d;">Mission </b></h1>
-                <p>To offer remarkable travel experiences that encourage our customers to discover unfamiliar cultures and locations.</p>
-                <p>To produce unforgettable expeditions that meet our clients' desires and surpass their expectations.</p>
+                <p><?php echo $row['mission'];?></p>
             </div>
             <div class="vision hidden">
                 <h1>Our <b style="color: #d7263d;">Vision</b></h1>
-                <p>We aim to become the best among travel agencies in the country, by offering outstanding service, creative travel solutions, and memorable experiences that surpass our customers' expectations, while fostering a love for exploration.</p>
+                <p><?php echo $row['vision'];?></p>
             </div>
         </div>
         

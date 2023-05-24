@@ -19,16 +19,13 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="">About</a>
+                    <a href="branding.php">Branding</a>
                 </li>
                 <li>
                     <a href="">Services</a>
                 </li>
                 <li>
                     <a href="">Reviews</a>
-                </li>
-                <li>
-                    <a href="">Branding</a>
                 </li>
                 <li>
                     <a href="">Inquiries</a>
@@ -68,13 +65,13 @@
             
         </div> -->
         <div class="nav-btn-container shadow">
-            <a href="" class="nav-btn">
-                    <h1>About</h1>
-                    <p>Customize the website's about section</p>
-                </a>
+            <a href="branding.php" class="nav-btn">
+                <h1>Branding</h1>
+                <p>Customize the company's information</p>
+            </a>
         </div>
         <div class="nav-btn-container shadow">
-            <a href="" class="nav-btn">
+            <a href="services.php" class="nav-btn">
                 <h1>Services</h1>
                 <p>Add or remove services that is shown in the website</p>
             </a>
@@ -85,12 +82,7 @@
                 <p>Manage customer reviews that are seen in the website</p>
             </a>
         </div>
-        <div class="nav-btn-container shadow">
-            <a href="" class="nav-btn">
-                <h1>Branding</h1>
-                <p>Customize the website's logo</p>
-            </a>
-        </div>
+        
         <div class="nav-btn-container shadow">
             <a href="" class="nav-btn">
                 <h1>Inquiries</h1>
