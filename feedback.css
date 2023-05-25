@@ -25,7 +25,7 @@ body{
     text-align: center;
     background-position: center;
 }
-.banner h3, .banner p{
+.banner h3, .banner p, .banner button{
     top: 50%;
     position: relative;
     color: #fff;
@@ -40,8 +40,7 @@ body{
     color: rgb(0, 0, 0) !important;
 }
 .content{
-    min-height: 100vh;
-    max-height: fit-content;
+    min-height: fit-content;
     margin: 0 15%;
     padding: 20px;
     display: flex;
@@ -53,21 +52,25 @@ body{
 .testimonial{
     color: #303030;
     width: 300px;
-    min-height: 300px;
+    min-height: fit-content;
     border: 1px solid #d0d0d0;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
 }
+.rating{
+    text-align: left;
+}
+.rating span{
+    margin-right: 5px;
+}
 .message{
-    height: 70%;
+    height: 65%;
+    text-align: left;
 }
 .customer-name{
-    margin-top: 15px;
+    margin-top: 5px;
     font-weight: bold;
-}
-.date{
-    font-style: italic;
 }
 .checked{
     color: orange;
@@ -98,7 +101,7 @@ body{
 .form, .contact{
     text-align: start;
 }
-input, textarea, select{
+.home6 input, .home6 textarea, .home6 select{
     box-sizing:border-box;
     width: 100%;
     padding: 0.6em 0.3em;
@@ -113,21 +116,39 @@ input, textarea, select{
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid transparent;
 }
-input[type='submit']{
+.home6 input[type='submit']{
     background-color: #d7263d;
     color: white;
     border: none;
     transition: all 0.3s;
     cursor: pointer;
 }
-input[type='submit']:hover{
+
+.home6 input[type='submit']:hover{
     background-color: #d36473;
 }
-input:focus, textarea:focus{
+
+.home6 input:focus, .home6 textarea:focus{
     border: 1px solid #d0d0d0;
 }
-select{
+.home6 select{
     color: #d0d0d0;
+}
+.button{
+    font-size: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    padding: 15px 50px;
+    border: none;
+    color: white;
+    background-color: #d7263d;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.button:hover{
+    background-color: #ffffff;
+    color: black;
+    transform: translateY(-5%);
 }
 .background-tint {
     background-color: rgba(32, 32, 32, 0.5);
@@ -157,6 +178,7 @@ footer{
     padding-top: 20px;
     padding-left: 20px;
 }
+
 @media (max-width: 992px){
     header{
         justify-content: space-around;

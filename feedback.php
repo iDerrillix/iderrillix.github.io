@@ -7,8 +7,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="utilities.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,80 +47,57 @@
     <div class="banner background-tint">
         <h3>Testimonials</h3>
         <p>What Our Customers Say</p>
+        <button class="button" onclick="document.querySelector('#review-form').style.visibility = 'visible';" type="button">Leave us a review</button>
     </div>
+    <div class="modal-background" onclick="toggleModal()"></div>
+
+    <div class="modal" id="modal">
+        <p>
+            Thank you for leaving an honest review!
+        </p>
+    </div>
+    <div id="review-form" class="review-form container shadow center-div" style="margin: auto; width: fit-content; position: absolute; max-width: 100vw; visibility: hidden;">
+            <form action="feedback.php" method="GET">
+                <button onclick="document.querySelector('#review-form').style.visibility = 'hidden';" style="color: red; background-color: rgba(255,255,255, 0);padding: 0; float: right;">X</button>
+                <h3>Leave a review</h3>
+                <input type="email" name="email" id="" class="text-box" placeholder="Email Address" required>
+                <p style="color: black;">How would you rate us from 1 to 5?</p>
+                <input type="number" name="rating" id="" required class="text-box" min="1" max="5" required>
+                <textarea name="message" id="" cols="30" rows="5" class="text-box" maxlength="180" required></textarea>
+                <input type="submit" value="Submit Review" class="input-btn" name="add-review">
+            </form>
+        </div>
     <div class="content">
-        <div class="testimonial">
-            <div class="rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="message">
-                "Ang galing. Very nays beri good service. I finally got to Japan, the home of my waifu. However, I played Albion Online throughout the whole trip. Can't miss any avalonian dungeon runs of Bluntly. We need dem silver to get sum moneyz. We making big bucks. Follow wnidwo on twitch.tv/wnidwo. "
-            </div>
-            <div class="customer-name">
-                Glenn Mark Cruz
-            </div>
-            <div class="date">
-                20 Apr 2020
-            </div>
-        </div>
-        <div class="testimonial">
-            <div class="rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="message">
-            "Ang galing. Very nays beri good service. I finally got to Japan, the home of my waifu. However, I played Albion Online throughout the whole trip. Can't miss any avalonian dungeon runs of Bluntly. We need dem silver to get sum moneyz. We making big bucks. Follow wnidwo on twitch.tv/wnidwo. "
-            </div>
-            <div class="customer-name">
-                Glenn Mark Cruz
-            </div>
-            <div class="date">
-                20 Apr 2020
-            </div>
-        </div>
-        <div class="testimonial">
-            <div class="rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="message">
-            "Ang galing. Very nays beri good service. I finally got to Japan, the home of my waifu. However, I played Albion Online throughout the whole trip. Can't miss any avalonian dungeon runs of Bluntly. We need dem silver to get sum moneyz. We making big bucks. Follow wnidwo on twitch.tv/wnidwo. "
-            </div>
-            <div class="customer-name">
-                Glenn Mark Cruz
-            </div>
-            <div class="date">
-                20 Apr 2020
-            </div>
-        </div>
-        <div class="testimonial">
-            <div class="rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="message">
-            "Ang galing. Very nays beri good service. I finally got to Japan, the home of my waifu. However, I played Albion Online throughout the whole trip. Can't miss any avalonian dungeon runs of Bluntly. We need dem silver to get sum moneyz. We making big bucks. Follow wnidwo on twitch.tv/wnidwo. "
-            </div>
-            <div class="customer-name">
-                Glenn Mark Cruz
-            </div>
-            <div class="date">
-                <i>20 Apr 2020</i>
-            </div>
-        </div>
+        <?php 
+            $rating = "";
+            $query = "SELECT customers.cName, reviews.rating, reviews.r_msg, reviews.r_date FROM reviews JOIN customers ON reviews.cID = customers.cID";
+            $result = mysqli_query($con, $query);
+            while($row = mysqli_fetch_assoc($result)){
+                for($i = 0; $i < 5; $i++){
+                    if($i < $row['rating']){
+                        $rating .= "<span class='fa fa-star checked'></span>";
+                    } else {
+                        $rating .= "<span class='fa fa-star'></span>";
+                    }
+                }
+                echo "<div class='testimonial'>
+                <div class='rating'>
+                    $rating
+                </div>
+                <div class='message'>
+                    ".$row['r_msg']."
+                </div>
+                <div class='customer-name'>
+                    ".$row['cName']."
+                </div>
+                <div class='date'>
+                    ".date("D d M", strtotime($row['r_date']))."
+                </div>
+            </div>";
+            $rating = "";
+            }
+        ?>
+        
     </div>
     <div class="home6 background-tint-dark" id="contact">
         <div class="flex flex-main-center">
@@ -183,5 +163,39 @@
             toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
         }
     </script>
+    <script src="modal.js"></script>
 </body>
 </html>
+<?php
+    if(isset($_GET['add-review'])){
+        $email = $_GET['email'];
+        $rating = $_GET['rating'];
+        $message = $_GET['message'];
+        $query = "SELECT * FROM customers WHERE cEmail='$email'";
+        $result = mysqli_query($con, $query);
+        if(mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_assoc($result);
+            $id = $row['cID'];
+            $query = "INSERT INTO reviews VALUES (null, $rating, '$message', DEFAULT, $id);";
+            $result = mysqli_query($con, $query);
+            if($result){
+                echo "<script>
+                document.querySelector('#modal p').innerHTML = 'Success! Thank you for leaving a review!';
+                toggleModal();
+                setTimeout(function(){
+                    window.location.href = 'feedback.php';
+                }, 5000);
+                </script>";
+            } else {
+                echo "error";
+            }
+        } else {
+            echo "<script>
+            document.querySelector('#modal p').innerHTML = 'You are not included as a customer! Contact us if you think there is a problem.';
+            toggleModal();
+            </script>";
+        }
+        
+    }
+    $_GET = array();
+?>

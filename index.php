@@ -87,18 +87,22 @@
         <p class="hidden" style="color: grey;">What Our Customers Say</p>
         <h1 class="hidden">Reviews</h1><br>
         <div class="flex flex-center">
-            <div class="feedback-container hidden">
-                testawdtawdt tawd awdtaw dtawd awtd awdtaw dtawd tawd awtd awtd awdt awdt awdta wdawtd awtd awtd awtd awtd watdaw dtw dawtd awtd wtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd"
-                <br><br><b>-yung nagsabe hahaha</b>
-            </div>
-            <div class="feedback-container hidden">
-                "testawdtawdt tawd awdtaw dtawd awtd awdtaw dtawd tawd awtd awtd awdt awdt awdta wdawtd awtd awtd awtd awtd watdaw dtw dawtd awtd wtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd"
-                <br><br><b>-yung nagsabe hahaha</b>
-            </div>
-            <div class="feedback-container hidden">
-                "testawdtawdt tawd awdtaw dtawd awtd awdtaw dtawd tawd awtd awtd awdt awdt awdta wdawtd awtd awtd awtd awtd watdaw dtw dawtd awtd wtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd awtd
-                <br><br><b>-yung nagsabe hahaha</b>
-            </div>
+        <?php 
+            $query = "SELECT customers.cName, reviews.rating, reviews.r_msg, reviews.r_date FROM reviews JOIN customers ON reviews.cID = customers.cID LIMIT 3";
+            $result = mysqli_query($con, $query);
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<div class='feedback-container hidden flex flex-col flex-main-spacebetween'>
+                <div>
+                    ".$row['r_msg']."
+                </div>
+                <div style='align-self: flex-end;'>
+                    <b>".$row['cName']."</b>
+                </div>
+            </div>";
+            }
+        ?>
+            
+            
         </div>
         <button id="button" class="hidden" onclick="window.location.replace('./feedback.php')">SEE ALL</button>
     </div>
