@@ -79,13 +79,48 @@
             }
         }
     ?>
-    <div class="home background-tint-dark">
+    <div class="home">
+        <div class="text">
         <img src="./img/<?php echo $row['logo_path'];?>" alt="" width="120px" class="hidden">
         <h1 class="home-content hidden">From <b style="color: #d7263d;">DREAM</b> to <b style="color: #03d3fc;">DESTINATION</b></h1>
         
         <p class="home-content hidden">Travel the world, one adventure at a time</p><br>
         <button class="home-content hidden" onclick="window.location.href='./index.php#contact';">Start Your Journey Now</button>
+        </div>
+        <div class="slider background-tint-dark">
+            <div class="slides background-tint-dark">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="sliding first">
+                    <img src="./img/shrine-entrance.jpg" alt="">
+                </div>
+                <div class="sliding">
+                    <img src="./img/huts.jpg" alt="">
+                </div>
+                <div class="sliding">
+                    <img src="./img/lake.jpg" alt="">
+                </div>
+                <div class="sliding">
+                    <img src="./img/pic1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+    <script>
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+                counter = 1;
+            }
+        }, 5000);
+    </script>
     <div class="home2 background-tint" id="about">
         <span class="hidden">TRAVEL
         <span style="font-weight: bold; color: #d7263d;">MORE,</span><br>

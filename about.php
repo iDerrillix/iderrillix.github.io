@@ -68,7 +68,7 @@
             <p>It's about immersing yourself in new cultures, experiencing unique adventures, and creating memories that will last a lifetime.</p>
         </div>
         <div class="video-side hidden">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F1netravelandtours%2Fvideos%2F455122020039429%2F&show_text=false&width=560&t=0" width="640" height="480" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F1netravelandtours%2Fvideos%2F455122020039429%2F&show_text=false&width=560&t=0" width="640" height="480" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" data-autoplay="true"></iframe>
         </div>
         </div>
         

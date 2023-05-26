@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="feedback.css">
@@ -20,6 +20,11 @@
     <title>Customer Reviews</title>
 </head>
 <body>
+    <script>
+        $(document).ready(function(){
+            $('#review-form').hide();
+        });
+    </script>
 <header class="scrolled">
         <img src="./img/<?php echo $row['logo_path'];?>" alt="">
         <div class="nav-links">
@@ -47,7 +52,7 @@
     <div class="banner background-tint">
         <h3>Testimonials</h3>
         <p>What Our Customers Say</p>
-        <button class="button" onclick="document.querySelector('#review-form').style.visibility = 'visible';" type="button">Leave us a review</button>
+        <button class="button" onclick="$('#review-form').show(500);" type="button">Leave us a review</button>
     </div>
     <div class="modal-background" onclick="toggleModal()"></div>
 
@@ -57,9 +62,9 @@
             Thank you for leaving an honest review!
         </p>
     </div>
-    <div id="review-form" class="review-form container shadow center-div" style="margin: auto; width: fit-content; position: absolute; max-width: 100vw; visibility: hidden;">
+    <div id="review-form" class="review-form container shadow center-div" style="margin: auto; width: fit-content; position: absolute; max-width: 100vw; top: 25%;">
             <form action="feedback.php" method="GET">
-                <button onclick="document.querySelector('#review-form').style.visibility = 'hidden';" style="color: red; background-color: rgba(255,255,255, 0);padding: 0; float: right;">X</button>
+                <button onclick="$('#review-form').hide(500);" style="color: red; background-color: rgba(255,255,255, 0);padding: 0; float: right;">X</button>
                 <h3>Leave a review</h3>
                 <input type="email" name="email" id="" class="text-box" placeholder="Email Address" required>
                 <p style="color: black;">How would you rate us from 1 to 5?</p>
