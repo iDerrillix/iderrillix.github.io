@@ -9,33 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="logo-header">
-        <img src="../img/marwinlogowhiters.png" alt="" width="80px">
-    </div>
-    <div class="nav shadow">
-        <div class="nav-items">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="branding.php">Branding</a>
-                </li>
-                <li>
-                    <a href="">Services</a>
-                </li>
-                <li>
-                    <a href="">Reviews</a>
-                </li>
-                <li>
-                    <a href="">Inquiries</a>
-                </li>
-                <li>
-                    <a href="">Feedbacks</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<?php 
+    include 'admin-header.php.';
+?>
     <div class="stats flex flex-main-center flex-gap-20 flex-main-spaceearound center-div flex-wrap">
         <!-- <div class="nav-btn shadow" style="width: 200px;">
             <a href="">About</a>
@@ -77,20 +53,20 @@
             </a>
         </div>
         <div class="nav-btn-container shadow">
-            <a href="" class="nav-btn">
+            <a href="review.php" class="nav-btn">
                 <h1>Reviews</h1>
                 <p>Manage customer reviews that are seen in the website</p>
             </a>
         </div>
         
         <div class="nav-btn-container shadow">
-            <a href="" class="nav-btn">
+            <a href="inquiries.php" class="nav-btn">
                 <h1>Inquiries</h1>
                 <p>View customer inquiries</p>
             </a>
         </div>
         <div class="nav-btn-container shadow">
-        <a href="" class="nav-btn">
+        <a href="feedbacks.php" class="nav-btn">
             <h1>Feedbacks</h1>
             <p>View customer feedbacks</p>
         </a>

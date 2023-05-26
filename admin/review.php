@@ -48,33 +48,9 @@
     <title>Document</title>
 </head>
 <body>
-<div class="logo-header">
-        <img src="../img/<?php echo $row['logo_path'];?>" alt="" width="80px">
-    </div>
-    <div class="nav shadow">
-        <div class="nav-items">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="branding.php">Branding</a>
-                </li>
-                <li>
-                    <a href="">Services</a>
-                </li>
-                <li>
-                    <a href="">Reviews</a>
-                </li>
-                <li>
-                    <a href="">Inquiries</a>
-                </li>
-                <li>
-                    <a href="">Feedbacks</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<?php 
+    include 'admin-header.php.';
+?>
     <div class="container shadow" style="margin: auto; margin-top: 50px; width: 90%; text-align: left;">
         
         <div class="flex flex-main-spacebetween">
@@ -102,7 +78,7 @@
                                 <td>".$row['rating']."</td>
                                 <td>".$row['r_msg']."</td>
                                 <td>".$row['r_date']."</td>
-                                <td><a href='review.php?id=".$row['review_id']."&action=review-delete' class='input-btn' style='text-decoration: none; background-color: red;'>Delete</a></td>
+                                <td><a href='review.php?id=".$row['review_id']."&action=review-delete' class='input-btn' style='text-decoration: none; background-color: red;'><i class='fa-solid fa-trash'></i></a></td>
                                 </tr>
                                 ";
                             }
@@ -139,7 +115,7 @@
                                 <td>".$row['cID']."</td>
                                 <td>".$row['cName']."</td>
                                 <td>".$row['cEmail']."</td>
-                                <td><a href='review.php?id=".$row['cID']."&action=customer-delete' class='input-btn' style='text-decoration: none; background-color: red;'>Delete</a></td>
+                                <td><a href='review.php?id=".$row['cID']."&action=customer-delete' class='input-btn' style='text-decoration: none; background-color: red;'><i class='fa-solid fa-trash'></i></a></td>
                                 </tr>
                                 ";
                             }

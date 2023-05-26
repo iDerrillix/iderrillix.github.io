@@ -7,19 +7,33 @@
         $address = $_POST['address'];
         $map = str_replace("'", '\"',$_POST['map']);
         $file = $_FILES['file'];
-        $fileName = $_FILES['file']['name'];
-        $fileTmpName = $_FILES['file']['tmp_name'];
-        $fileDestination = '../img/'.$fileName;
-        move_uploaded_file($fileTmpName, $fileDestination);
-        $mission = str_replace($find, "\'", $_POST['mission']);
-        $vision = str_replace($find, "\'", $_POST['vision']);
-        $query = "UPDATE company SET contact_no='$phone', email_add='$email', address='$address', mapsEmbed='$map', logo_path='$fileName', mission='$mission', vision='$vision' WHERE id=1;";
-        $result = mysqli_query($con, $query);
-        if(!$result){
-            echo '<script>alert("Update Failed");</script>';
-        } else {
-            echo '<script>alert("Successfully Updated");</script>';
-        }
+        if(!isset($_FILES['file']) || $_FILES['file']['error'] == UPLOAD_ERR_NO_FILE) {
+            $mission = str_replace($find, "\'", $_POST['mission']);
+            $vision = str_replace($find, "\'", $_POST['vision']);
+            $query = "UPDATE company SET contact_no='$phone', email_add='$email', address='$address', mapsEmbed='$map', mission='$mission', vision='$vision' WHERE id=1;";
+            $result = mysqli_query($con, $query);
+            if(!$result){
+                echo '<script>alert("Update Failed");</script>';
+            } else {
+                echo '<script>alert("Successfully Updated");</script>';
+            }
+            
+          } else {
+            $fileName = $_FILES['file']['name'];
+            $fileTmpName = $_FILES['file']['tmp_name'];
+            $fileDestination = '../img/'.$fileName;
+            move_uploaded_file($fileTmpName, $fileDestination);
+            $mission = str_replace($find, "\'", $_POST['mission']);
+            $vision = str_replace($find, "\'", $_POST['vision']);
+            $query = "UPDATE company SET contact_no='$phone', email_add='$email', address='$address', mapsEmbed='$map', logo_path='$fileName', mission='$mission', vision='$vision' WHERE id=1;";
+            $result = mysqli_query($con, $query);
+            if(!$result){
+                echo '<script>alert("Update Failed");</script>';
+            } else {
+                echo '<script>alert("Successfully Updated");</script>';
+            }
+          }
+        
     }
 ?>
 <?php 
@@ -40,33 +54,11 @@
     <title>Document</title>
 </head>
 <body>
-<div class="logo-header">
-        <img src="../img/<?php echo $row['logo_path'];?>" alt="" width="80px">
-    </div>
-    <div class="nav shadow">
-        <div class="nav-items">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="branding.php">Branding</a>
-                </li>
-                <li>
-                    <a href="">Services</a>
-                </li>
-                <li>
-                    <a href="">Reviews</a>
-                </li>
-                <li>
-                    <a href="">Inquiries</a>
-                </li>
-                <li>
-                    <a href="">Feedbacks</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<?php 
+    include 'admin-header.php.';
+?>
+
+
     
     <div class="container shadow" style="margin: auto; margin-top: 50px; width: 60%; text-align: left;">
         <h3>Customize Company Information</h3>

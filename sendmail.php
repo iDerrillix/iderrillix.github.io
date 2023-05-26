@@ -19,10 +19,14 @@
         $mail->setFrom('jjfoodtrays@gmail.com',  "One Travel and Tours");
         $mail->addAddress($_POST['femail'], $_POST['fname']);
         $mail->isHTML(true);
-        $mail->Subject = "Feedback";
-        $mail->Body = $_POST['fname'].',  We have received your concern.';
+        $mail->Subject = "Thank you for your feedback";
+        $mail->Body = 'Hi, '.$_POST['fname'].'.  Thank you for time and effort in sharing your thoughts about our service. We sincerely value your active participation and commitment in assisting us to expand and deliver the utmost quality service. Customers such as yourself serve as a constant source of inspiration, driving us to pursue excellence day in and day out.
+        <br><br>
+        Once again, we extend our gratitude for the invaluable feedback you provided. If you have any additional suggestions, ideas, or concerns, please feel free to contact us without hesitation. We highly appreciate your ongoing partnership and eagerly anticipate the opportunity to serve you even better in the days ahead.
+        <br><br>
+        May you have an outstanding day ahead!';
         $mail->send();
-        $query = "INSERT INTO feedback VALUES (null, '".$_POST['fname']."', '".$_POST['femail']."', '".$_POST['fmessage']."', null, 'New')";
+        $query = "INSERT INTO feedback VALUES (null, '".$_POST['fname']."', '".$_POST['femail']."', '".$_POST['fmessage']."', null, 'Unresolved')";
         if(mysqli_query($con, $query)){
             header("Location: index.php#feedback");
         } else {

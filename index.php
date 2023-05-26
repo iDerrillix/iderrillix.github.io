@@ -2,16 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>1ne Travel and Tours</title>
+    <link rel="stylesheet" href="modal.css">
 </head>
 <body>
+    <div class="modal-background" onclick="toggleModal()"></div>
+
+    <div class="modal" id="modal">
+        <h2>Thank you for contacting us!</h2>
+        <p>
+            Thank you for leaving an honest review!
+        </p>
+    </div>
+    <script src="modal.js"></script>
     <?php 
         include 'header.php';
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+
+        require 'phpmailer/src/Exception.php';
+        require 'phpmailer/src/PHPMailer.php';
+        require 'phpmailer/src/SMTP.php';
     ?>
     <?php 
         if(isset($_POST['submit'])){
@@ -20,14 +37,45 @@
             $email = $_POST['email'];
             $options = $_POST['options'];
             $message = $_POST['message'];
-
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'jjfoodtrays@gmail.com';
+            $mail->Password = 'ltpmkxujuugyhmkc';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+            $mail->setFrom('jjfoodtrays@gmail.com',  "One Travel and Tours");
+            $mail->addAddress($_POST['email'], $_POST['cname']);
+            $mail->isHTML(true);
+            $mail->Subject = "Thank You for Contacting Us!";
+            $mail->Body = 'Hi, '.$_POST['cname'].'.  Thank you for reaching out to us through our website. We appreciate your interest in One Travel and Tours. 
+            This email is to acknowledge that we have received your message and want to assure you that we will contact you soon. 
+            Please keep your communication lines open.
+            <br><br>
+            Once again, thank you for choosing One Travel and Tours. We look forward to assisting you and providing you with the information or assistance you require. 
+            You are important to us, and we will make every effort to ensure your experience with us is positive.
+            <br><br>
+            Wishing you a wonderful day ahead!';
+            $mail->send();
             $query = "INSERT INTO contact_form VALUES (null, '$cname', '$phone', '$email', '$options', '$message', null, 'Pending');";
             $result = mysqli_query($con, $query);
             $_POST = array();
             if($result){
-                echo "<script>alert('Success'); window.location.href='index.php#contact';</script>";
+                echo "<script>
+                document.querySelector('#modal h2').innerHTML = 'Thank you for contacting us!';
+                document.querySelector('#modal p').innerHTML = 'You will hear from us soon. Please keep your communication lines open.';
+                toggleModal();
+                setTimeout(function(){
+                    window.location.href = 'index.php#contact';
+                }, 3000);
+                </script>";
             } else {
-                echo "<script>alert('Failed'); ";
+                echo "<script>
+                document.querySelector('#modal h2').innerHTML = 'An error has occured';
+                    document.querySelector('#modal p').innerHTML = 'Contact us if you think there is a problem.';
+                    toggleModal();
+                    </script>";
             }
         }
     ?>
@@ -78,7 +126,12 @@
             <input type="text" name="fname" id="fname" placeholder="Your Name" required>
             <input type="email" name="femail" id="femail" placeholder="Your Email" required>
             <textarea name="fmessage" id="" cols="30" rows="5" placeholder="Your Feedback" required></textarea >
-            <input type="submit" value="Send" onclick="feedback();" name="submit">
+            <input type="submit" value="Send" onclick="document.querySelector('#modal h2').innerHTML = 'Thank you for your feedback!';
+                document.querySelector('#modal p').innerHTML = 'We appreciate your thoughts and we will keep striving to become better.';
+                toggleModal();
+                setTimeout(function(){
+                    window.location.href = 'index.php#feedback';
+                }, 5000);" name="submit">
         </form>
         
     </div>

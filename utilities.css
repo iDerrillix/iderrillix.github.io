@@ -141,7 +141,7 @@ body{
     background-color: #f4f6fb;
 }
 .cell {
-    max-width: 50px; /* tweak me please */
+    max-width: 400px; /* tweak me please */
     white-space : nowrap;
     overflow : hidden;
   }

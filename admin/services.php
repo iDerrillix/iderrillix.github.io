@@ -68,33 +68,9 @@
     <title>Document</title>
 </head>
 <body>
-<div class="logo-header">
-        <img src="../img/<?php echo $row['logo_path'];?>" alt="" width="80px">
-    </div>
-    <div class="nav shadow">
-        <div class="nav-items">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="branding.php">Branding</a>
-                </li>
-                <li>
-                    <a href="">Services</a>
-                </li>
-                <li>
-                    <a href="">Reviews</a>
-                </li>
-                <li>
-                    <a href="">Inquiries</a>
-                </li>
-                <li>
-                    <a href="">Feedbacks</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<?php 
+    include 'admin-header.php.';
+?>
     <div class="container shadow" style="margin: auto; margin-top: 50px; width: 60%; text-align: left;">
         <h3>Manage Services</h3>
         <button class="input-btn" style="margin: 10px 0;" onclick="document.querySelector('#add-service').style.display = 'block';">Add Service</button>
@@ -149,7 +125,7 @@
                                 <td>".$row['service_ID']."</td>
                                 <td>".$row['service_name']."</td>
                                 <td><img src='../img/".$row['sevice_imgPath']."' style='width: 120px;'></td>
-                                <td><a href='services.php?id=".$row['service_ID']."&action=modify' class='input-btn' style='text-decoration: none; background-color: orange;'>Modify</a> <a href='services.php?id=".$row['service_ID']."&action=delete' class='input-btn' style='text-decoration: none; background-color: red;'>Delete</a></td>
+                                <td><a href='services.php?id=".$row['service_ID']."&action=modify' class='input-btn' style='text-decoration: none; background-color: orange;'><i class='fa-solid fa-pen-to-square'></i></a> <a href='services.php?id=".$row['service_ID']."&action=delete' class='input-btn' style='text-decoration: none; background-color: red;'><i class='fa-solid fa-trash'></i></a></td>
                             </tr>
                         ";
                     }

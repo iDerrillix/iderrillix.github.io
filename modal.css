@@ -1,6 +1,4 @@
-html, body{
-    height: 100%;
-}
+
 
 body{
     margin: 0;
@@ -52,6 +50,7 @@ body.open .modal-background{
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
+    z-index: 999;
 }
 
 body.open .modal{

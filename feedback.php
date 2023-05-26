@@ -52,6 +52,7 @@
     <div class="modal-background" onclick="toggleModal()"></div>
 
     <div class="modal" id="modal">
+        <h2>Success! </h2>
         <p>
             Thank you for leaving an honest review!
         </p>
@@ -180,7 +181,8 @@
             $result = mysqli_query($con, $query);
             if($result){
                 echo "<script>
-                document.querySelector('#modal p').innerHTML = 'Success! Thank you for leaving a review!';
+                document.querySelector('#modal h2').innerHTML = 'Success!';
+                document.querySelector('#modal p').innerHTML = 'Thank you for leaving a review!';
                 toggleModal();
                 setTimeout(function(){
                     window.location.href = 'feedback.php';
@@ -191,7 +193,8 @@
             }
         } else {
             echo "<script>
-            document.querySelector('#modal p').innerHTML = 'You are not included as a customer! Contact us if you think there is a problem.';
+            document.querySelector('#modal h2').innerHTML = 'You are not included as a customer!';
+            document.querySelector('#modal p').innerHTML = 'Contact us if you think there is a problem.';
             toggleModal();
             </script>";
         }
