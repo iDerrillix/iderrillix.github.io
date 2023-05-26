@@ -154,6 +154,39 @@
             </div>
         </div>
     </div>
+    <div class="img-area background-tint-dark" id="img-area">
+        <div class="text hidden">
+            <p style="color: white;">At One Travel and Tours, our commitment to high-quality work extends beyond the booking process. </p>
+            <span style="color: white; font-size: 32px;">We provide <b style="color: #d7263d;">timely assistance</b> and <b style="color: #d7263d;">support</b>, even while you are on the <b style="color: #d7263d;">go</b>.</span>
+            
+        </div>
+        <img id="test" src="./img/suitcase2.jpeg"/>
+    </div>
+<script>
+      window.addEventListener('scroll', () => {  
+    let scrollTop = document.documentElement.scrollTop;
+    document.getElementById('test').style.width = 100 + scrollTop / 5 + '%';
+  });
+window.addEventListener('scroll', () => {
+  let imgElement = document.getElementById('test');
+  let imgAreaElement = document.getElementById('img-area');
+  
+  let imgAreaRect = imgAreaElement.getBoundingClientRect();
+  let imgAreaTop = imgAreaRect.top;
+  let imgAreaBottom = imgAreaRect.bottom;
+  
+  let viewportHeight = window.innerHeight;
+  
+  if (imgAreaTop < viewportHeight && imgAreaBottom > 0) {
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollPosition = imgAreaTop - scrollTop;
+    let scrollPercentage = (viewportHeight - scrollPosition) / viewportHeight;
+    let zoomLevel = 100 + (scrollPercentage * 20); // Adjust the zoom speed as needed
+    console.log(zoomLevel);
+    imgElement.style.width = zoomLevel + '%';
+  }
+});
+</script>
     <div class="home4" id="feedback">
         <p style="color: #fff;" class="hidden">Tried our services before?</p>
         <h3 style="color: #d7263d;" class="hidden"> <b>Give us a feedback!</b> </h3>
