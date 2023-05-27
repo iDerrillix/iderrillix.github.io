@@ -3,6 +3,7 @@
     $query = "SELECT * FROM company;";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
+    $logo = $row['logo_path'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Customer Reviews</title>
+    <title>Reviews | 1ne Travel and Tours</title>
 </head>
 <body>
     <script>
@@ -30,11 +31,12 @@
         <div class="nav-links">
             <ul>
                 <li>
-                <a href="./index.php#">Home</a>
-                <a href="./index.php#about">About</a>
-                <a href="./index.php#services">Services</a>
-                <a href="./index.php#feedback">Feedback</a>
-                <a href="./index.php#contact">Contact</a>
+                    <a href="index.php">Home</a>
+                    <a href="about.php">About</a>
+                    <a href="index.php#services">Services</a>
+                    <a href="tours.php">Tour Packages</a>
+                    <a href="feedback.php">Reviews</a>
+                    <a href="contact.php">Contact</a>
                 </li>
             </ul>
         </div>
@@ -43,11 +45,12 @@
         </div>
     </header>
     <div class="dropdown_menu">
-            <li><a href="index.php#">Home</a></li>
-            <li><a href="index.php#about">About</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="index.php#services">Services</a></li>
-            <li><a href="index.php#feedback">Feedback</a></li>
-            <li><a href="index.php#contact">Contact</a></li>
+            <li><a href="tours.php">Tour Packages</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </div>
     <div class="banner background-tint">
         <h3>Testimonials</h3>
@@ -97,7 +100,7 @@
                     ".$row['cName']."
                 </div>
                 <div class='date'>
-                    ".date("D d M", strtotime($row['r_date']))."
+                    ".date("D d M Y", strtotime($row['r_date']))."
                 </div>
             </div>";
             $rating = "";
@@ -106,52 +109,15 @@
         
     </div>
     <div class="home6 background-tint-dark" id="contact">
-        <div class="flex flex-main-center">
-            <div class="form hidden" style="max-width: 650px;">
-                <?php 
-                    $query = "SELECT * FROM company;";
-                    $result = mysqli_query($con, $query);
-                    $row = mysqli_fetch_assoc($result);
-
-                ?>
-                <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
-                
-                <p><b>Phone:</b> <?php echo $row['contact_no']; ?></p>
-                <p><b>Email:</b> <?php echo $row['email_add']; ?></p><br>
-                <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
-                <hr>
-            <form action="index.php" method="POST">
-                <div class="flex">
-                    <div style="width: 100%;">
-                        <label for="cname">Full Name</label><br>
-                        <input type="text" name="cname" id="" placeholder="e.g. Jonas C. Vasallo" required><br>
-                        <label for="phone">Contact Number</label><br>
-                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required pattern="[0][9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="11 Digit Contact Number (09XXXXXXXXX)">
-                    </div>
-                    <div class="div" style="width: 100%;">
-                        <label for="email">Email Address</label><br>
-                        <input type="email" name="email" id="" placeholder="e.g. example@mail.com" required><br>
-                        <label for="inquiry">Choose Option</label><br>
-                        <select name="options" id="options" required>
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="Inquire">Inquire</option>
-                            <option value="Help">Help</option>
-                          </select><br>
-                    </div>
-                </div>
-                <label for="message">Message</label><br>
-                <textarea name="message" id="" cols="30" rows="10" placeholder="Type your message here..." required></textarea>
-                <input type="submit" value="Submit" name="submit">
-
-
-            </form>
+        <div class="touch-container">
+            <p>Get in touch with</p>
+            <div id="text-div">
+            <img src="./img/<?php echo $logo;?>" alt="" style="width: 60px; margin: 10px 0;">
+            <span>1ne Travel and Tours</span>
             </div>
-            <div class="contact hidden" style="max-width: 650px;">
-                <span><b style="color: #d7263d;">Located</b> in</span><br>
-                <p><b>Address:</b> <?php echo $row['address']; ?></p>
-                <?php echo $row['mapsEmbed']; ?>
-                
-            </div>
+            <button class="button" onclick="window.location.href = 'contact.php'">Inquire Now</button>
+            <p style="font-size: 16px; margin: 10px 0;">Follow Us On</p>
+            <a href="https://www.facebook.com/1netravelandtours"><img alt="Facebook" style="width: 32px; height: 32px; object-fit: cover;" fetchpriority="high" src="https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png/v1/fill/w_32,h_32,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png"></a>
         </div>
         
     </div>

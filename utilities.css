@@ -21,8 +21,8 @@ body{
 .container{
     padding: 1.25em 0.9em;
     background-color: #fff;
-    border-radius: 1.25rem;
     width: 90%;
+    border-radius: 3px;
 }
 .center-div{
     position: fixed;
@@ -55,7 +55,7 @@ body{
 .input-btn{
     font-size: 1em;
     margin-top: 0.8em;
-    background-color: #292929;
+    background-color: #d7263d;
     border: none;
     outline: none;
     color: #fff;
@@ -64,7 +64,7 @@ body{
     cursor: pointer;
 }
 .input-btn:hover{
-    background-color: #575757;
+    background-color: #9e1729;
 }
 
 /* Flex Styles*/
@@ -115,13 +115,9 @@ body{
 }
 .table{
     border-collapse: collapse;
-    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
     background-color: white;
     text-align: left;
     overflow: scroll;
-}
-.table thead{
-    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
 }
 .table thead th{
     top: 0;

@@ -12,11 +12,11 @@
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'jjfoodtrays@gmail.com';
-        $mail->Password = 'ltpmkxujuugyhmkc';
+        $mail->Username = '1netravelandtours@gmail.com';
+        $mail->Password = 'ohbcbnxxqsmbqrqe';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->setFrom('jjfoodtrays@gmail.com',  "One Travel and Tours");
+        $mail->setFrom('1netravelandtours@gmail.com',  "1ne Travel and Tours");
         $mail->addAddress($_POST['femail'], $_POST['fname']);
         $mail->isHTML(true);
         $mail->Subject = "Thank you for your feedback";

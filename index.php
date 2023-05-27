@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>1ne Travel and Tours</title>
+    <title>Home | 1ne Travel and Tours</title>
     <link rel="stylesheet" href="modal.css">
 </head>
 <body>
@@ -23,61 +23,6 @@
     <script src="modal.js"></script>
     <?php 
         include 'header.php';
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\Exception;
-
-        require 'phpmailer/src/Exception.php';
-        require 'phpmailer/src/PHPMailer.php';
-        require 'phpmailer/src/SMTP.php';
-    ?>
-    <?php 
-        if(isset($_POST['submit'])){
-            $cname = $_POST['cname'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'];
-            $options = $_POST['options'];
-            $message = $_POST['message'];
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'jjfoodtrays@gmail.com';
-            $mail->Password = 'ltpmkxujuugyhmkc';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-            $mail->setFrom('jjfoodtrays@gmail.com',  "One Travel and Tours");
-            $mail->addAddress($_POST['email'], $_POST['cname']);
-            $mail->isHTML(true);
-            $mail->Subject = "Thank You for Contacting Us!";
-            $mail->Body = 'Hi, '.$_POST['cname'].'.  Thank you for reaching out to us through our website. We appreciate your interest in One Travel and Tours. 
-            This email is to acknowledge that we have received your message and want to assure you that we will contact you soon. 
-            Please keep your communication lines open.
-            <br><br>
-            Once again, thank you for choosing One Travel and Tours. We look forward to assisting you and providing you with the information or assistance you require. 
-            You are important to us, and we will make every effort to ensure your experience with us is positive.
-            <br><br>
-            Wishing you a wonderful day ahead!';
-            $mail->send();
-            $query = "INSERT INTO contact_form VALUES (null, '$cname', '$phone', '$email', '$options', '$message', null, 'Pending');";
-            $result = mysqli_query($con, $query);
-            $_POST = array();
-            if($result){
-                echo "<script>
-                document.querySelector('#modal h2').innerHTML = 'Thank you for contacting us!';
-                document.querySelector('#modal p').innerHTML = 'You will hear from us soon. Please keep your communication lines open.';
-                toggleModal();
-                setTimeout(function(){
-                    window.location.href = 'index.php#contact';
-                }, 3000);
-                </script>";
-            } else {
-                echo "<script>
-                document.querySelector('#modal h2').innerHTML = 'An error has occured';
-                    document.querySelector('#modal p').innerHTML = 'Contact us if you think there is a problem.';
-                    toggleModal();
-                    </script>";
-            }
-        }
     ?>
     <div class="home">
         <div class="text">
@@ -181,12 +126,34 @@ window.addEventListener('scroll', () => {
     let scrollTop = document.documentElement.scrollTop;
     let scrollPosition = imgAreaTop - scrollTop;
     let scrollPercentage = (viewportHeight - scrollPosition) / viewportHeight;
-    let zoomLevel = 100 + (scrollPercentage * 20); // Adjust the zoom speed as needed
+    let zoomLevel = 100 + (scrollPercentage * 20);
     console.log(zoomLevel);
     imgElement.style.width = zoomLevel + '%';
   }
 });
 </script>
+<div class="featured-tours">
+    <p class="hidden" style="color: grey;">Explore and Uncover</p>
+    <h1 class="hidden">FEATURED PACKAGES</h1>
+    <div class="tours">
+        <?php 
+            $query = "SELECT * FROM packages WHERE featured=1;";
+            $result = mysqli_query($con, $query);
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<div class='tour-card hidden'>
+                <div class='tour-image'>
+                    <img src='./img/".$row['pImgPath']."' alt=''>
+                </div>
+                <div class='intro'>
+                    <h1>".$row['p_name']."</h1>
+                    <p>".$row['p_desc']."</p>
+                </div>
+            </div>";
+            }
+        ?>
+    </div>
+    <button class="button" onclick="window.location.href = 'tours.php'">See All</button>
+</div>
     <div class="home4" id="feedback">
         <p style="color: #fff;" class="hidden">Tried our services before?</p>
         <h3 style="color: #d7263d;" class="hidden"> <b>Give us a feedback!</b> </h3>
@@ -228,54 +195,16 @@ window.addEventListener('scroll', () => {
         <button id="button" class="hidden" onclick="window.location.replace('./feedback.php')">SEE ALL</button>
     </div>
     <div class="home6 background-tint-dark" id="contact">
-        <div class="flex flex-main-center">
-            <div class="form hidden" style="max-width: 650px;">
-                <?php 
-                    $query = "SELECT * FROM company;";
-                    $result = mysqli_query($con, $query);
-                    $row = mysqli_fetch_assoc($result);
-
-                ?>
-                <span>Get in <b style="color: #d7263d;">touch</b> with us</span>
-                
-                <p><b>Phone:</b> <?php echo $row['contact_no']; ?></p>
-                <p><b>Email:</b> <?php echo $row['email_add']; ?></p><br>
-                <p>Reach out to us for any business enquiries, service assistance, and everything else in between! </p>
-                <hr>
-            <form action="index.php" method="POST">
-                <div class="flex">
-                    <div style="width: 100%;">
-                        <label for="cname">Full Name</label><br>
-                        <input type="text" name="cname" id="" placeholder="e.g. Jonas C. Vasallo" required><br>
-                        <label for="phone">Contact Number</label><br>
-                        <input type="tel" name="phone" id="" placeholder="e.g. 09123456789" required pattern="[0][9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="11 Digit Contact Number (09XXXXXXXXX)">
-                    </div>
-                    <div class="div" style="width: 100%;">
-                        <label for="email">Email Address</label><br>
-                        <input type="email" name="email" id="" placeholder="e.g. example@mail.com" required><br>
-                        <label for="inquiry">Choose Option</label><br>
-                        <select name="options" id="options" required>
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="Inquire">Inquire</option>
-                            <option value="Help">Help</option>
-                          </select><br>
-                    </div>
-                </div>
-                <label for="message">Message</label><br>
-                <textarea name="message" id="" cols="30" rows="10" placeholder="Type your message here..." required></textarea>
-                <input type="submit" value="Submit" name="submit">
-
-
-            </form>
+        <div class="touch-container hidden">
+            <p>Get in touch with</p>
+            <div id="text-div">
+            <img src="./img/<?php echo $logo;?>" alt="" style="width: 60px; margin: 10px 0;">
+            <span>1ne Travel and Tours</span>
             </div>
-            <div class="contact hidden" style="max-width: 650px;">
-                <span><b style="color: #d7263d;">Located</b> in</span><br>
-                <p><b>Address:</b> <?php echo $row['address']; ?></p>
-                <?php echo $row['mapsEmbed']; ?>
-                
-            </div>
+            <button class="button" onclick="window.location.href = 'contact.php'">Inquire Now</button>
+            <p style="font-size: 16px; margin: 10px 0;">Follow Us On</p>
+            <a href="https://www.facebook.com/1netravelandtours"><img alt="Facebook" style="width: 32px; height: 32px; object-fit: cover;" fetchpriority="high" src="https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png/v1/fill/w_32,h_32,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png"></a>
         </div>
-        
     </div>
     <footer>
         Copyright © 2022 1NE Travel and Tours. All rights reserved.

@@ -3,6 +3,7 @@
     $query = "SELECT * FROM company;";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
+    $logo = $row['logo_path'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +17,11 @@
             <ul>
                 <li>
                     <a href="#">Home</a>
-                    <a href="#about">About</a>
+                    <a href="about.php">About</a>
                     <a href="#services">Services</a>
-                    <a href="#feedback">Feedback</a>
-                    <a href="#contact">Contact</a>
+                    <a href="tours.php">Tour Packages</a>
+                    <a href="feedback.php">Reviews</a>
+                    <a href="contact.php">Contact</a>
                 </li>
             </ul>
         </div>
@@ -28,11 +30,12 @@
         </div>
     </header>
     <div class="dropdown_menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#feedback">Feedback</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="tours.php">Tour Packages</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </div>
         <script>
         const toggleBtnIcon = document.querySelector('.toggle-btn i');

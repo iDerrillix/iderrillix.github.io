@@ -45,60 +45,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reviews | 1ne Admin</title>
 </head>
 <body>
 <?php 
     include 'admin-header.php.';
 ?>
-    <div class="container shadow" style="margin: auto; margin-top: 50px; width: 90%; text-align: left;">
-        
-        <div class="flex flex-main-spacebetween">
-            <div style="width: 50%">
-            <p>Edit Reviews</p>
+    <div class="flex flex-main-spacearound" style="margin-top: 150px; width: 90%; margin: 25px auto;">
+        <div class="container shadow" style="width: 50%; text-align: left;">
+            <p>Client Reviews</p>
             <br>
-                <table class="table" style="width: 100%;">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Rating</th>
-                        <th>Message</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            $query = "SELECT reviews.review_id, customers.cName, reviews.rating, reviews.r_msg, reviews.r_date FROM reviews JOIN customers ON reviews.cID = customers.cID";
-                            $result = mysqli_query($con, $query);
-                            while($row = mysqli_fetch_assoc($result)){
-                                echo "
-                                <tr>
-                                <td>".$row['review_id']."</td>
-                                <td>".$row['cName']."</td>
-                                <td>".$row['rating']."</td>
-                                <td>".$row['r_msg']."</td>
-                                <td>".$row['r_date']."</td>
-                                <td><a href='review.php?id=".$row['review_id']."&action=review-delete' class='input-btn' style='text-decoration: none; background-color: red;'><i class='fa-solid fa-trash'></i></a></td>
-                                </tr>
-                                ";
-                            }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-            <div style="width: 45%">
+            <table class="table" style="width: 100%;">
+                <thead>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <?php 
+                        $query = "SELECT reviews.review_id, customers.cName, reviews.rating, reviews.r_msg, reviews.r_date FROM reviews JOIN customers ON reviews.cID = customers.cID";
+                        $result = mysqli_query($con, $query);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "
+                            <tr>
+                            <td>".$row['cName']."</td>
+                            <td>".$row['rating']."</td>
+                            <td style='font-size: 12px; width: 400px;'>".$row['r_msg']."</td>
+                            <td>".$row['r_date']."</td>
+                            <td><a href='review.php?id=".$row['review_id']."&action=review-delete' class='input-btn' style='text-decoration: none; background-color: red;'><i class='fa-solid fa-trash'></i></a></td>
+                            </tr>
+                            ";
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex flex-col flex-gap-20" style="width: 45%;">
+            <div class="container shadow" style="width: 100%; text-align: left;">
                 <div class="flex flex-main-spacebetween flex-cross-center">
-                    <p>Customers allowed for review</p>
-                    <button class="input-btn" style="float: right;" onclick="if(document.querySelector('#add-customer').style.display == 'block'){document.querySelector('#add-customer').style.display = 'none';} else{document.querySelector('#add-customer').style.display = 'block'};">Add</button>
+                    <p>Add Clients</p>
                 </div>
-                <div id="add-customer" style="display: none; margin: 10px 0px;">
+                <div id="add-customer" style="margin: 10px 0px;">
                     <form action="review.php" method="POST">
                         <input type="text" name="cName" id="" placeholder="Full Name" required class="text-box">
                         <input type="email" name="cEmail" id="" placeholder="Email Address" required class="text-box">
                         <input type="submit" value="Add Customer" class="input-btn" name="add-customer">
                     </form>
                 </div>
-                <table class="table" style="width: 100%;">
+                
+            </div>
+            <div class="container shadow" style="width: 100%; text-align: left;">
+                <p>Clients allowed for review</p>
+                <table class="table" style="margin-top: 10px; width: 100%;">
                     <thead>
                         <th>ID</th>
                         <th>Name</th>
@@ -124,6 +124,7 @@
                 </table> 
             </div>
         </div>
+        
     </div>
 </body>
 </html>

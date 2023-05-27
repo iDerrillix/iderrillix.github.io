@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home | 1ne Admin</title>
 </head>
 <body>
 <?php 
@@ -49,7 +49,13 @@
         <div class="nav-btn-container shadow">
             <a href="services.php" class="nav-btn">
                 <h1>Services</h1>
-                <p>Add or remove services that is shown in the website</p>
+                <p>Add or remove services that are shown in the website</p>
+            </a>
+        </div>
+        <div class="nav-btn-container shadow">
+            <a href="tour-packages.php" class="nav-btn">
+                <h1>Tour Packages</h1>
+                <p>Add or remove tour packages that are shown in the website</p>
             </a>
         </div>
         <div class="nav-btn-container shadow">

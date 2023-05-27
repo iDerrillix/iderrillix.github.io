@@ -1,4 +1,4 @@
-<?php 
+<?php
     require '../dbcon.php';
     if(isset($_POST['submit'])){
         $find = array("'", "\'");
@@ -51,41 +51,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Branding | 1ne Admin</title>
 </head>
 <body>
-<?php 
-    include 'admin-header.php.';
-?>
-
-
-    
-    <div class="container shadow" style="margin: auto; margin-top: 50px; width: 60%; text-align: left;">
-        <h3>Customize Company Information</h3>
-        <br>
-        <br>
-        <form action="branding.php" method="POST" enctype="multipart/form-data">
-            
+    <?php 
+        include 'admin-header.php.';
+    ?>
+    <form action="branding.php" method="POST" enctype="multipart/form-data">
+        <div class="container shadow" style="margin: auto; margin-top: 50px; width: 60%; text-align: left;">
+            <p>Company Information</p>
+            <br>
             <input type="tel" name="phone" id="" placeholder="Phone/Tel Number" class="text-box" value="<?php echo $row['contact_no']; ?>" required>
             <input type="email" name="email" id="" placeholder="Email Address" class="text-box" value="<?php echo $row['email_add']; ?>" required>
             <input type="text" name="address" id="" placeholder="Address" class="text-box" value="<?php echo $row['address']; ?>" required>
             <input type="text" name="map" id="" placeholder="Google Maps Embedded Map" class="text-box" placeholder="Paste Google Maps Embedded Map Link" value="<?php echo str_replace('"', "'",$row['mapsEmbed']);?>" required>
+            
+        </div>
+        <div class="container shadow" style="margin: auto; margin-top: 15px; width: 60%; text-align: left;">
             <p>Company Logo</p>
             <input type="file" name="file" id="" placeholder="Company Logo" class="text-box">
+        </div>
+        <div class="container shadow" style="margin: auto; margin-top: 15px; width: 60%; text-align: left;">
             <div class="flex flex-main-spacebetween flex-gap-10">
-               <div style="width: 50%;">
+                <div style="width: 50%;">
                     <p>Mission</p>
-                    <textarea name="mission" id="mission" cols="15" rows="10" placeholder="Mission" class="text-box" required><?php echo $row['mission']; ?></textarea>
-               </div>
+                    <textarea name="mission" id="mission" cols="15" rows="6" placeholder="Mission" class="text-box" required><?php echo $row['mission']; ?></textarea>
+                </div>
                 <div style="width: 50%;">  
                     <p>Vision</p>
-                    <textarea name="vision" id="" cols="15" rows="10" placeholder="Vision" class="text-box" required><?php echo $row['vision']; ?></textarea>
+                    <textarea name="vision" id="" cols="15" rows="6" placeholder="Vision" class="text-box" required><?php echo $row['vision']; ?></textarea>
                 </div>
             </div>
-            
-            
             <input type="submit" value="Update" name="submit" class="input-btn" style="display: block; margin:auto;">
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 </html>

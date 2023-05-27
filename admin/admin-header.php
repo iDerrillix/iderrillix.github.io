@@ -1,4 +1,5 @@
-<?php 
+<?php
+    include 'admin-verify.php';
     require '../dbcon.php';
         $query = "SELECT * FROM company;";
         $result = mysqli_query($con, $query);
@@ -13,32 +14,45 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-    <div class="logo-header">
-        <img src="../img/<?php echo $row['logo_path'];?>" alt="" width="80px">
-    </div>
-    <div class="nav shadow">
-        <div class="nav-items">
-            <ul>
-                <li>
-                    <a href="dashboard.php">Home</a>
-                </li>
-                <li>
-                    <a href="branding.php">Branding</a>
-                </li>
-                <li>
-                    <a href="services.php">Services</a>
-                </li>
-                <li>
-                    <a href="review.php">Reviews</a>
-                </li>
-                <li>
-                    <a href="inquiries.php">Inquiries</a>
-                </li>
-                <li>
-                    <a href="feedbacks.php">Feedbacks</a>
-                </li>
-            </ul>
+    <nav>
+        <div class="logo-header shadow">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <img src="../img/<?php echo $row['logo_path'];?>" alt="" width="80px">
+                <h3>1ne Travel and Tours</h3>
+            </div>
+            <div>
+                <a href="admin-login.php" style="text-decoration: none; color: white; font-weight: bold;">Logout</a>
+            </div>
+            
         </div>
-    </div>
+        <div class="nav">
+            <div class="nav-items">
+                <ul>
+                    <li>
+                        <a href="dashboard.php">HOME</a>
+                    </li>
+                    <li>
+                        <a href="branding.php">BRANDING</a>
+                    </li>
+                    <li>
+                        <a href="services.php">SERVICES</a>
+                    </li>
+                    <li>
+                        <a href="tour-packages.php">TOUR PACKAGES</a>
+                    </li>
+                    <li>
+                        <a href="review.php">REVIEWS</a>
+                    </li>
+                    <li>
+                        <a href="inquiries.php">INQUIRIES</a>
+                    </li>
+                    <li>
+                        <a href="feedbacks.php">FEEDBACKS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
 </body>
 </html>

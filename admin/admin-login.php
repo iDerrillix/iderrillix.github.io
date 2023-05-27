@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    unset($_SESSION['login']);
+    session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | 1NE Travel and Tours</title>
 </head>
 <body>
     <div class="container center-div center-text shadow" style="width: 40%;">

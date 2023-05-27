@@ -65,14 +65,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Services | 1ne Admin</title>
 </head>
 <body>
 <?php 
     include 'admin-header.php.';
 ?>
-    <div class="container shadow" style="margin: auto; margin-top: 50px; width: 60%; text-align: left;">
-        <h3>Manage Services</h3>
+    <div class="container shadow" style="margin: auto; margin-top: 25px; width: 60%; text-align: left;">
+        <p>Manage Services</p>
         <button class="input-btn" style="margin: 10px 0;" onclick="document.querySelector('#add-service').style.display = 'block';">Add Service</button>
         <div id="add-service" style="display: none; margin-bottom: 20px;">
         <p>Add Service</p>
@@ -85,29 +85,29 @@
             <br>
         </div>
         
-        <div id="modify-service" style="display: none; margin-bottom: 20px;">
-            <p>Update Service</p>
-            <hr>
-            <br>
-            <form action="services.php" method="POST" enctype="multipart/form-data">
-                <?php 
-                if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action'] == 'modify'){
-                    echo "<script>document.querySelector('#modify-service').style.display = 'block';</script>";
-                    echo "<input type='hidden' name='service_ID' value='".$_GET['id']."'>";
-                    $query = "SELECT * FROM services WHERE service_ID=$id;";
-                    $result = mysqli_query($con, $query);
-                    $row = mysqli_fetch_assoc($result);
-                    echo "<input type='text' name='service_name' id='' class='text-box' placeholder='Service Name' required value='".$row['service_name']."'>";
-                }
-            ?>
-                
-                <p>Service Image</p>
-                <input type="file" name="sevice_imgPath" id="" class="text-box">
-                <input type="submit" value="Update" class="input-btn" name="modify_service" style="float: right;">
-            </form>
-        </div>
+        
+        
+    </div>
+    <div class="container shadow" style="margin: auto; margin-top: 25px; width: 60%; text-align: left; display: none; margin-bottom: 20px;" id="modify-service">
+        <p>Update Service</p>
         <br>
-        <br>
+        <form action="services.php" method="POST" enctype="multipart/form-data">
+            <?php 
+            if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action'] == 'modify'){
+                echo "<script>document.querySelector('#modify-service').style.display = 'block';</script>";
+                echo "<input type='hidden' name='service_ID' value='".$_GET['id']."'>";
+                $query = "SELECT * FROM services WHERE service_ID=$id;";
+                $result = mysqli_query($con, $query);
+                $row = mysqli_fetch_assoc($result);
+                echo "<input type='text' name='service_name' id='' class='text-box' placeholder='Service Name' required value='".$row['service_name']."'>";
+            }
+        ?>
+            <p>Service Image</p>
+            <input type="file" name="sevice_imgPath" id="" class="text-box">
+            <input type="submit" value="Update" class="input-btn" name="modify_service">
+        </form>
+    </div>
+    <div class="container shadow" style="margin: auto; margin-top: 15px; width: 60%; text-align: left;">
         <table class="table" style="width: 100%;">
             <thead>
                 <th>Service ID</th>
@@ -135,5 +135,6 @@
             </tbody>
         </table>
     </div>
+
 </body>
 </html>

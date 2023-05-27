@@ -52,25 +52,33 @@ body{
 .testimonial{
     color: #303030;
     width: 300px;
-    min-height: fit-content;
+    min-height: 200px;
     border: 1px solid #d0d0d0;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: spacebetween;
 }
 .rating{
     text-align: left;
 }
 .rating span{
-    margin-right: 5px;
+    height: 10%;
+    margin-right: 10px;
 }
 .message{
-    height: 65%;
+    height: 60%;
     text-align: left;
 }
 .customer-name{
+    height: 10%;
     margin-top: 5px;
     font-weight: bold;
+}
+.date{
+    height: 10%;
 }
 .checked{
     color: orange;
@@ -89,50 +97,24 @@ body{
     flex-direction: column;
     padding: 0px 100px;
 }
+.touch-container{
+    text-align: start;
+    width: 72%;
+}
+#text-div{
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center;
+}
 .home6 span{
-    font-size: 42px;
+    font-size: 50px;
     font-weight: 600;
     color: #fff;
+    margin: 0 10px;
 }
-.home6 p, .home6 label{
-    color: #fff;
-    font-size: 16px;
-}
-.form, .contact{
-    text-align: start;
-}
-.home6 input, .home6 textarea, .home6 select{
-    box-sizing:border-box;
-    width: 100%;
-    padding: 0.6em 0.3em;
-    border: none;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 0.3em;
-    color: #ffffff;
-    outline: none;
-    font-weight: 400;
-    margin-bottom: 0.6em;
-    resize: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid transparent;
-}
-.home6 input[type='submit']{
-    background-color: #d7263d;
+.home6 p{
+    font-size: 24px;
     color: white;
-    border: none;
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
-.home6 input[type='submit']:hover{
-    background-color: #d36473;
-}
-
-.home6 input:focus, .home6 textarea:focus{
-    border: 1px solid #d0d0d0;
-}
-.home6 select{
-    color: #d0d0d0;
 }
 .button{
     font-size: 20px;
@@ -203,14 +185,18 @@ footer{
         width: 100%;
         padding: 20px !important;
     }
-    .home6 span{
-        font-size: 20px;
+    .touch-container{
+        text-align: center;
     }
-    .home6, .home6 label{
-        font-size: 11px;
+    #text-div{
+        flex-direction: column;
+        justify-content: center;
     }
-    .contact iframe{
-        width: 100%;
+    #text-div span{
+        font-size: 40px;
+    }
+    .touch-container .button{
+        padding: 0.6em 1.2em;
     }
     footer{
         font-size: 12px;
